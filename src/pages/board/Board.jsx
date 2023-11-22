@@ -5,7 +5,11 @@ import { CircleComponent } from "../../components/CircleComponent.jsx";
 export const Board = () => {
 
 	return (
-		<div className={styles.gameField}>
+		<div style={{
+			width: '100vw',
+			height: '100vh',
+			background: '#000000a3',
+		}}>
 			<div className={styles.gameBoard}>
 				<CircleComponent/>
 			</div>

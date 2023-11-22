@@ -1,4 +1,13 @@
-body{
-    padding: 0px;
-    margin: 0px;
+body {
+	padding: 0px;
+	margin: 0px;
+}
+
+#root {
+	width: 100vw;
+	height: 100vh;
+	background-color: rgba(0, 0, 0, 0.655);
+	overflow: hidden;
+	display: flex;
+	justify-content: center;
 }
