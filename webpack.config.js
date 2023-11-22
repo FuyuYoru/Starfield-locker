@@ -42,15 +42,15 @@ module.exports = {
 	module: {
 		rules: [
 			{ test: /\.(html)$/, use: ['html-loader'] },
-			{
-				test: /\.(s[ac]|c)ss$/i, // /\.(le|c)ss$/i если вы используете less
-				use: [
-					MiniCssExtractPlugin.loader,
-					'css-loader',
-					'postcss-loader',
-					'sass-loader',
-				],
-			},
+			// {
+			// 	test: /\.(s[ac]|c)ss$/i, // /\.(le|c)ss$/i если вы используете less
+			// 	use: [
+			// 		MiniCssExtractPlugin.loader,
+			// 		'css-loader',
+			// 		'postcss-loader',
+			// 		'sass-loader',
+			// 	],
+			// },
 			{
 				test: /\.(png|jpe?g|gif|svg|webp|ico)$/i,
 				type: mode === 'production' ? 'asset' : 'asset/resource', // В продакшен режиме
