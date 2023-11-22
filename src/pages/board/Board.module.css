@@ -1,3 +1,9 @@
+.gameField{
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.3);
+	display: flex;
+}
 .gameBoard {
 	width: 60%;
 	background-color: black;
@@ -6,9 +12,20 @@
 }
 .infoBoard{
 	width: 40%;
+	margin-top: 100px;
+	margin-left: 40px;
 	display: flex;
 	flex-direction: column;
+	justify-content: start;
 }
-/* .gameBoard > * {
-	flex:1;
-} */
+.topBarMenu{
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+.selectingComb{
+	width: 300px;
+	height: 200px;
+	background-color: black;
+	color: white;
+}
