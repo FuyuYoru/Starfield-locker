@@ -34,8 +34,12 @@ export const LockSvgComponent = ({ outerRadius, innerRadius, segmentsCount = 32,
 	const pathData = describeCircle(outerRadius, innerRadius, segmentsCount)
 
 	return (
-		<svg width={outerRadius * 2 + 20} height={outerRadius * 2 + 20} xmlns="http://www.w3.org/2000/svg">
-			<g style={{ translate: '10px 10px' }}>
+		<svg style={{
+			width: `${outerRadius * 2}`,
+			height: `${outerRadius * 2}`
+		}} xmlns="http://www.w3.org/2000/svg">
+			<g 
+			>
 				{pathData.map((path, index) => {
 					if (disabledSegments.includes(index)) {
 						return <path d={`${path}`} fill="transparent" stroke="transparent" strokeWidth="0.5" />

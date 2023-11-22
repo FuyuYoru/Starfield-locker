@@ -1,10 +1,20 @@
+.allContainer{
+	background-color: red;
+	width: 600px;
+	height: 600px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
 .anyContainer {
-	background-color: black;
+	background-color: green;
 	position: relative;
+	width: 200px;
+	height: 200px;
 }
 
 .anyContainer>svg {
-	position: absolute;
 	background: transparent;
 	overflow: visible;
+	position: absolute;
 }

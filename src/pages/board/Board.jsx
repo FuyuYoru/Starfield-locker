@@ -8,9 +8,8 @@ export const Board = () => {
 		<div>
 			<div className={styles.gameBoard}>
 				<CircleComponent/>
-				<CircleComponent/>
 			</div>
-			<div>
+			<div className={styles.infoBoard}>
 
 			</div>
 		</div>

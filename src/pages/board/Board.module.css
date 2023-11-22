@@ -1,9 +1,14 @@
 .gameBoard {
+	width: 60%;
 	background-color: black;
 	display: flex;
 	flex-direction: row;
 }
-
-.gameBoard > * {
-	flex:1;
+.infoBoard{
+	width: 40%;
+	display: flex;
+	flex-direction: column;
 }
+/* .gameBoard > * {
+	flex:1;
+} */
