@@ -1,0 +1,9 @@
+.gameBoard {
+	background-color: black;
+	display: flex;
+	flex-direction: row;
+}
+
+.gameBoard > * {
+	flex:1;
+}

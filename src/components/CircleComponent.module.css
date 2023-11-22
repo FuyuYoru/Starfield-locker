@@ -1,3 +1,10 @@
-.anyContainer { 
+.anyContainer {
 	background-color: black;
+	position: relative;
+}
+
+.anyContainer>svg {
+	position: absolute;
+	background: transparent;
+	overflow: visible;
 }
