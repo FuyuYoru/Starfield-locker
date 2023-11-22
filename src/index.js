@@ -1,6 +1,7 @@
 import React from 'react';
-import { CircleComponent } from './components/CircleComponent.tsx';
-import ReactDOM from 'react-dom'
+import { CircleComponent } from './components/CircleComponent.jsx';
+import ReactDOM from 'react-dom';
+// import './styles.css';
 
 
 ReactDOM

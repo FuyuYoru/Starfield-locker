@@ -1,5 +1,5 @@
 import React from "react";
-import { CircleSvgComponent } from "./CustomSVGComponent.jsx";
+import { LockSvgComponent } from "./CustomSVGComponent.jsx";
 export const CircleComponent = () => {
 	const size = 100;
 	return (
@@ -15,7 +15,7 @@ export const CircleComponent = () => {
 			}>
 				{/* <Circle radius={100} thickness={10} /> */}
 				<div>
-					<CircleSvgComponent outerRadius={100} innerRadius={90} segmentsCount={32} />
+					<LockSvgComponent outerRadius={100} innerRadius={90} segmentsCount={32} />
 				</div>
 			</div>
 		</>
