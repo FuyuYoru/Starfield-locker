@@ -82,6 +82,27 @@ module.exports = {
 					},
 				},
 			},
+			{
+				test: /\.css$/,
+				exclude: /\.module\.css$/,
+				use: ['style-loader', 'css-loader'],
+			},
+			{
+				test: /\.module\.css$/,
+				use: [
+					'style-loader',
+					{
+						loader: 'css-loader',
+						options: {
+							importLoaders: 1,
+							modules:{
+							// localIdentName: '[name]__[local]__[hash:base64:5]'
+							localIdentName: '[local]__[hash:base64:5]'
+							},
+					 },
+					},
+				],
+			},
 		],
 	}
 }

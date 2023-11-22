@@ -13,7 +13,6 @@ export const CircleComponent = () => {
 					top: '25%',
 				}
 			}>
-				{/* <Circle radius={100} thickness={10} /> */}
 				<div>
 					<LockSvgComponent outerRadius={100} innerRadius={90} segmentsCount={32} />
 				</div>
