@@ -6,9 +6,9 @@ export const CircleComponent = () => {
 	return (
 		<div className={styles.allContainer}>
 			<div className={styles.anyContainer}>
-				<LockSvgComponent outerRadius={100} innerRadius={90} segmentsCount={32} />
-				<LockSvgComponent outerRadius={80} innerRadius={70} segmentsCount={32} />
-				<LockSvgComponent outerRadius={60} innerRadius={50} segmentsCount={32} />
+				<LockSvgComponent outerRadius={200} innerRadius={190} segmentsCount={32} />
+				<LockSvgComponent outerRadius={180} innerRadius={170} segmentsCount={32} />
+				<LockSvgComponent outerRadius={160} innerRadius={150} segmentsCount={32} />
 			</div>
 		</div>
 	)

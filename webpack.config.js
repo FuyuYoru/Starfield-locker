@@ -32,11 +32,13 @@ module.exports = {
 	devtool: 'source-map',
 	output: {
 		path: path.resolve(__dirname, 'dist'),
+		publicPath: '/',
 		clean: true,
 	},
 
 	devServer: {
 		hot: true,
+		historyApiFallback: true,
 	},
 
 	module: {

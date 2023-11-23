@@ -8,12 +8,10 @@ import { Provider } from 'react-redux';
 import { App } from './App.jsx';
 import './index.css'
 
-
-
 ReactDOM
 	.render(
-		// <Provider store={store}>
+		<Provider store={store}>
 			<App />
-		// </Provider>
+		</Provider>
 		,document.getElementById('root')
 	);
