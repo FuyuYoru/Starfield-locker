@@ -1,3 +1,9 @@
+@font-face {
+  font-family: "Marske";   /*Can be any text*/
+  src: local("Marske"),
+    url("./fonts/Marske.ttf") format("truetype");
+}
+
 body {
 	padding: 0px;
 	margin: 0px;
