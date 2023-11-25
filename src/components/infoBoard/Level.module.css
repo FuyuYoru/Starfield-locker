@@ -1,0 +1,15 @@
+.lvlLocker{
+	display: flex;
+	color: red;
+	margin-bottom: 60px;
+}
+.imgLevelLocker{
+    fill: "red";
+    margin-right: "3px";
+}
+.nameLevellocker{
+    font-size: "18px";
+    display: "flex";
+    flex-direction: "column";
+    justify-content: "space-between";
+}
