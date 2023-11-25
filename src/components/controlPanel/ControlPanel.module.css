@@ -1,0 +1,7 @@
+.controlPanel {
+	display: flex;
+	flex-direction: row;
+}
+.controlPanel > * {
+	flex: 1;
+}

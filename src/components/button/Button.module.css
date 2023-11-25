@@ -5,8 +5,9 @@
 	border-radius: 0px;
 	padding: 1rem 3rem;
 	background-color: initial;
-	color: black;
+	color: white;
 	gap:1rem;
+	font-family: 'Marske';
 }
 
 .buttonText {

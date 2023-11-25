@@ -1,8 +1,8 @@
 import React from 'react';
 
 const calculateCoordinates = (radius, angle) => ({
-	x: 100 + radius * Math.cos((angle * Math.PI) / 180),
-	y: 100 + radius * Math.sin((angle * Math.PI) / 180),
+	x: radius * Math.cos((angle * Math.PI) / 180),
+	y: radius * Math.sin((angle * Math.PI) / 180),
 });
 
 const describeArc = (radius, startAngle, endAngle, sweepFlag) => {
@@ -30,25 +30,27 @@ const describeCircle = (outerRadius, innerRadius, segmentsCount) => {
 	return resultPath
 }
 
-export const LockSvgComponent = ({ outerRadius, innerRadius, segmentsCount = 32, disabledSegments = [5, 9, 15] }) => {
+export const LockSvgComponent = ({ outerRadius, innerRadius, segmentsCount = 32, disabledSegments = [0, 10, 31] }) => {
 	const pathData = describeCircle(outerRadius, innerRadius, segmentsCount)
 
 	return (
 		<svg style={{
 			width: `${outerRadius * 2}`,
 			height: `${outerRadius * 2}`
+			
 		}} xmlns="http://www.w3.org/2000/svg">
-			<g 
+			<g
+				style={{ transform: `translate(${outerRadius}px, ${outerRadius}px` }}
 			>
 				{pathData.map((path, index) => {
 					if (disabledSegments.includes(index)) {
-						return <path d={`${path}`} fill="transparent" stroke="transparent" strokeWidth="0.5" />
+						return <path key={index} d={`${path}`} fill="transparent" stroke="transparent" strokeWidth="0.5" />
 					} else {
-						return <path d={`${path}`} fill="yellow" stroke="black" strokeWidth="0.5" />
+						return <path key={index} d={`${path}`} fill="yellow" stroke="black" strokeWidth="0.5" />
 					}
 				})}
 			</g>
-		</svg>
+		</svg >
 	);
 };
 
