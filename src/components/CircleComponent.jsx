@@ -13,7 +13,7 @@ import { changePosition } from "../redux/slices/digipicksSlice.js";
 export const CircleComponent = ({ sections }) => {
 	const dispatch = useDispatch();
 	const digipick = useSelector(state => getActiveDigipick(state));
-
+	console.log(sections, digipick);
 	const handleRotateLeft = (markers, displacement) => {
 		const tmp = rotateMarkers('left', markers, displacement)
 		dispatch(changePosition({
