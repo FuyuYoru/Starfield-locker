@@ -9,11 +9,22 @@ const digipicks = createSlice({
 	initialState,
 	reducers: {
 		addDigipick: (state, action) => {
-			const { digipickId, properties } = action.payload;
-			state[digipickId] = properties;
+			const { indexes, distances } = action.payload;
+			const id = `digipick_${Object.keys(state).length + 1}`
+			state[id] = {
+				indexes: indexes,
+				distances: distances
+			};
 		},
+		changePosition: (state, action) => {
+			const { digipickID, newPosition } = action.payload;
+			state[digipickID].indexes = newPosition
+		},
+		refreshState: (state) => {
+			state = initialState
+		}
 	}
 })
 
-export const { addDigipick } = digipicks.actions;
+export const { addDigipick, changePosition } = digipicks.actions;
 export default digipicks.reducer;

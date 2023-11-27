@@ -9,9 +9,15 @@ const lockSections = createSlice({
 	initialState,
 	reducers: {
 		addSection: (state, action) => {
-			const { sectionNumber, segments } = action.payload;
-			state[sectionNumber] = segments;
+			const { sectionNumber, segments, distances } = action.payload;
+			state[sectionNumber] = {
+				'segments': segments,
+				'distances': distances,
+			};
 		},
+		refreshState: (state) => {
+			state = initialState
+		}
 	}
 })
 
