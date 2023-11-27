@@ -15,11 +15,7 @@ const SelectingCombContainer = () => {
 				<div className={styles.topCountCombCount}>7</div>
 			</div>
 			<div className={styles.changeComb}>
-				{/* <img src="./imgs/circle.svg" alt="" />
-				<img src="./imgs/circle.svg" alt="" />
-				<img src="./imgs/circle.svg" alt="" />
-				<img src="./imgs/circle.svg" alt="" /> */}
-				{shuffle(Object.keys(digipicks)).map((value, index) =>
+				{(Object.keys(digipicks)).map((value, index) =>
 					<span
 						key={index}
 						onClick={() => dispatch(setCurrentDigipick({ digipickID: value }))}

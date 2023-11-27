@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-
+import shuffle from "../../utils/shuffleArray";
 const initialState = {
 
 }
@@ -16,6 +16,16 @@ const digipicks = createSlice({
 				distances: distances
 			};
 		},
+		addDigipicks: (state, action) => {
+			const { arrayObjects } = action.payload;
+			shuffle(arrayObjects).map((value, index) => {
+				const id = `digipick_${index + 1}`
+				state[id] = {
+					indexes: value.indexes,
+					distances: value.distances
+				};
+			})
+		},
 		changePosition: (state, action) => {
 			const { digipickID, newPosition } = action.payload;
 			state[digipickID].indexes = newPosition
@@ -26,5 +36,5 @@ const digipicks = createSlice({
 	}
 })
 
-export const { addDigipick, changePosition } = digipicks.actions;
+export const { addDigipick, addDigipicks, changePosition } = digipicks.actions;
 export default digipicks.reducer;
