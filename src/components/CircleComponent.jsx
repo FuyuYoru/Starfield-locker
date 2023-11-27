@@ -6,7 +6,7 @@ import { ControlPanel } from "./controlPanel/ControlPanel.jsx";
 import { getLockerSegments } from "../utils/LockerSegments.js";
 
 export const CircleComponent = () => {
-	const [currentDigipickMarkers, setCurrentDigipickMarkers] = useState([5, 10, 15])
+	const [currentDigipickMarkers, setCurrentDigipickMarkers] = useState([20, 10, 15])
 
 	const handleRotateLeft = (markers, displacement) => {
 		const tmp = rotateMarkers('left', markers, displacement)

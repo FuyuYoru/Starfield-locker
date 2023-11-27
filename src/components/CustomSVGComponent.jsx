@@ -30,7 +30,7 @@ const describeCircle = (outerRadius, innerRadius, segmentsCount) => {
 	return resultPath
 }
 
-export const LockSvgComponent = ({ outerRadius, innerRadius, segmentsCount = 32, disabledSegments = [0, 10, 31] }) => {
+export const LockSvgComponent = ({ outerRadius, innerRadius, segmentsCount = 32, disabledSegments = [5, 10, 31] }) => {
 	const pathData = describeCircle(outerRadius, innerRadius, segmentsCount)
 
 	return (
