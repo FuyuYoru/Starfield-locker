@@ -1,4 +1,4 @@
-.selectingComb{
+.selectingComb {
 	width: 300px;
 	height: 200px;
 	background-color: rgba(0, 0, 0, 0.7);
@@ -6,7 +6,8 @@
 	color: white;
 	padding: 10px;
 }
-.topCountComb{
+
+.topCountComb {
 	display: flex;
 	padding: 7px;
 	justify-content: space-between;
@@ -14,11 +15,14 @@
 	border: 1px solid rgb(82, 82, 82);
 	margin-bottom: 10px;
 }
-.topCountCombCount{
+
+.topCountCombCount {
 	background-color: rgb(65, 65, 65);
 	padding: 0px 10px;
 }
-.changeComb{
+
+.changeComb {
 	display: flex;
 	gap: 20px;
+	flex-wrap: wrap;
 }

@@ -8,7 +8,7 @@ export const ControlPanel = ({ onRotateRight, onRotateLeft }) => {
 	const onMouseDown = (event) => {
 		const id = setInterval(() => {
 			event.target.click()
-		}, 100);
+		}, 150);
 		setIntervalID(id);
 	}
 
@@ -20,7 +20,7 @@ export const ControlPanel = ({ onRotateRight, onRotateLeft }) => {
 			<Button
 				onMouseDown={(event) => onMouseDown(event)}
 				onMouseUp={onMouseUp}
-				onClick={() => onRotateLeft(1)}
+				onClick={onRotateLeft ? () => onRotateLeft(1) : null}
 				iconPosition='left'
 			>
 				Влево
@@ -28,7 +28,7 @@ export const ControlPanel = ({ onRotateRight, onRotateLeft }) => {
 			<Button
 				onMouseDown={(event) => onMouseDown(event)}
 				onMouseUp={onMouseUp}
-				onClick={() => onRotateRight(1)}
+				onClick={onRotateRight ? () => onRotateRight(1) : null}
 				iconPosition='right'
 			>
 				Вправо

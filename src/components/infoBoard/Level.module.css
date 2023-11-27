@@ -8,8 +8,8 @@
     margin-right: "3px";
 }
 .nameLevellocker{
-    font-size: "18px";
-    display: "flex";
-    flex-direction: "column";
-    justify-content: "space-between";
+    font-size: 18px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }

@@ -32,7 +32,6 @@ const describeCircle = (outerRadius, innerRadius, segmentsCount) => {
 
 export const LockSvgComponent = ({ outerRadius, innerRadius, segmentsCount = 32, disabledSegments = [5, 10, 31] }) => {
 	const pathData = describeCircle(outerRadius, innerRadius, segmentsCount)
-
 	return (
 		<svg style={{
 			width: `${outerRadius * 2}`,
