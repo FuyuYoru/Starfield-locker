@@ -51,6 +51,7 @@ export const CircleComponent = ({ sections }) => {
 			</div>
 			<ControlPanel
 				onRotateLeft={digipick ? (displacement) => handleRotateLeft(digipick.properties.indexes, displacement) : null}
+				
 				onRotateRight={digipick ? (displacement) => handleRotateRight(digipick.properties.indexes, displacement) : null}
 			/>
 		</div>

@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 import { RowSelector } from "../../components/rowSelector/RowSelector.jsx";
 import { Button } from "../../components/button/Button.jsx";
 import { createLockerSegments, createDigipicks } from "../../utils/LockerSegments.js";
-import { addDigipick } from "../../redux/slices/digipicksSlice.js";
+import { addDigipick, addDigipicks } from "../../redux/slices/digipicksSlice.js";
 import calculateDistance from "../../utils/CalculateDistance.js";
 import { useDispatch } from "react-redux";
 import { addSection } from "../../redux/slices/lockSectionsSlice.js";
@@ -20,6 +20,7 @@ export const Home = () => {
 	const navLinkRef = useRef();
 	console.log(styles);
 	const handleStartGame = () => {
+		const digipicksArray = [];
 		if (selectedItem !== null) {
 			Array.from({ length: levelProps[selectedItem].sectionsCount }).forEach((_, index) => {
 				const sectionProperties = createLockerSegments(levelProps[selectedItem]);
@@ -28,11 +29,12 @@ export const Home = () => {
 					segments: sectionProperties,
 					distances: calculateDistance(sectionProperties),
 				}));
+
 				const digipicks = createDigipicks(sectionProperties);
-				Object.keys(digipicks).forEach((element) => {
-					dispatch(addDigipick(digipicks[element]));
-				})
+				console.log(digipicks);
+				Object.values(digipicks).map((element) => digipicksArray.push(element))
 			});
+			dispatch(addDigipicks({ arrayObjects: digipicksArray }))
 			dispatch(setCurrentLevel({ level: selectedItem }));
 			navLinkRef.current.click()
 		} else {

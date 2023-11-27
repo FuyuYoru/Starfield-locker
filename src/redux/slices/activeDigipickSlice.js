@@ -3,6 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
 	activeDigipick: null,
 	currentLevel: null,
+	curretSection: null
 };
 
 const DigipickSlice = createSlice({
