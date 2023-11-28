@@ -3,11 +3,11 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
 	activeDigipick: null,
 	currentLevel: null,
-	curretSection: null
+	currentSection: null,
 };
 
-const DigipickSlice = createSlice({
-	name: 'activeDigipick',
+const activeItems = createSlice({
+	name: 'activeItems',
 	initialState,
 	reducers: {
 		setCurrentDigipick: (state, action) => {
@@ -18,11 +18,11 @@ const DigipickSlice = createSlice({
 			const { level } = action.payload;
 			state.currentLevel = level;
 		},
-		refreshState: (state) => {
-			state = initialState
-		}
+		clearActiveItems: (state) => {
+			return { ...initialState }
+		},
 	}
 })
 
-export const { setCurrentDigipick, setCurrentLevel, refreshState } = DigipickSlice.actions;
-export default DigipickSlice.reducer;
+export const { setCurrentDigipick, setCurrentLevel, clearActiveItems } = activeItems.actions;
+export default activeItems.reducer;

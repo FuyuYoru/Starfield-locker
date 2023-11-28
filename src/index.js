@@ -1,5 +1,5 @@
 import React from 'react';
-import { CircleComponent } from './components/CircleComponent.jsx';
+import { CircleComponent } from './components/lockerBoard/LockerBoard.jsx';
 import ReactDOM from 'react-dom';
 import { Board } from './pages/board/Board.jsx';
 import './index.css'

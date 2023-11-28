@@ -1,14 +1,24 @@
 import React, { useState } from "react";
 import { Button } from "../button/Button.jsx";
 import styles from './ControlPanel.module.css'
+import { useRef } from "react";
+import { NavLink } from "react-router-dom";
+import useGameState from "../../hooks/gameState.js";
 
-export const ControlPanel = ({ onRotateRight, onRotateLeft }) => {
+export const ControlPanel = ({ onRotateRight, onRotateLeft, onTryUnlock }) => {
 	const [intervalID, setIntervalID] = useState(false);
+	const navLinkRef = useRef()
+	const { stopGame } = useGameState()
+	
+	const HandleHomeTransition = () => {
+		stopGame()
+		navLinkRef.current.click()
+	}
 
 	const onMouseDown = (event) => {
 		const id = setInterval(() => {
 			event.target.click()
-		}, 150);
+		}, 100);
 		setIntervalID(id);
 	}
 
@@ -17,6 +27,12 @@ export const ControlPanel = ({ onRotateRight, onRotateLeft }) => {
 	}
 	return (
 		<div className={styles.controlPanel}>
+			<Button
+				onClick={onTryUnlock}
+				iconPosition='right'
+			>
+				Try
+			</Button>
 			<Button
 				onMouseDown={(event) => onMouseDown(event)}
 				onMouseUp={onMouseUp}
@@ -33,6 +49,13 @@ export const ControlPanel = ({ onRotateRight, onRotateLeft }) => {
 			>
 				Вправо
 			</Button>
+			<Button
+				iconPosition='right'
+				onClick={HandleHomeTransition}
+			>
+				На главную
+			</Button>
+			<NavLink to={"/"} style={{ display: 'none' }} ref={navLinkRef} />
 		</div>
 	)
 }

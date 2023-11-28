@@ -1,5 +1,6 @@
 import React from "react";
 import styles from './Button.module.css'
+
 export const Button = (props) => {
 	return (
 		<button
@@ -10,7 +11,7 @@ export const Button = (props) => {
 			onMouseUp={props.onMouseUp}
 		>
 			<span className={styles.buttonText}>{props.children}</span>
-			<span className={styles.buttonIcon}>{props.icon}</span>
+			{props.icon ? <span className={styles.buttonIcon}>{props.icon}</span>: null}
 		</button>
 	)
 }

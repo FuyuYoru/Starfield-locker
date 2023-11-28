@@ -77,6 +77,27 @@ export const createDigipicks = (lockerSegment) => {
 	})
 	return digipickSlices;
 }
+
+export const createFakeDigipick = (lockerSegment) => {
+	const digipickSlices = createDigipicksSlices(lockerSegment);
+
+	const key = Object.keys(digipickSlices)[0]
+	const distances = calculateDistance(digipickSlices[key]);
+	const indexes = indexMove(digipickSlices[key], randomNumber(1, 31));
+
+	const shouldAddIndex = Math.random() < 0.5;
+	if (shouldAddIndex) {
+		const randomIndex = randomNumber(0, distances.length - 1);
+		indexes.push(randomIndex);
+	} else {
+		indexes.pop();
+	}
+	return {
+		distances: distances,
+		indexes: indexes,
+	};
+};
+
 function indexMove(array, coef) {
 	return array.map(value => (value + coef) % 32);
 }

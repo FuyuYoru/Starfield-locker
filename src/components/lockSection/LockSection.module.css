@@ -1,0 +1,28 @@
+.svg {
+	transition: transform 0.3s ease-in-out;
+}
+
+@media (min-width: 360px) and (max-width: 1368px) {
+	.svg {
+		transform: scale(0.7);
+	}
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+	.svg {
+		transform: scale(0.7);
+	}
+
+}
+
+@media (max-width: 360px) {
+	.svg {
+		transform: scale(0.5);
+	}
+}
+
+@media (min-width: 1024px) and (max-width: 1368px) {
+	.svg {
+		transform: scale(1);
+	}
+}

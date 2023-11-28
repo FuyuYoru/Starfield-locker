@@ -1,4 +1,5 @@
 import React from 'react';
+import styles from './LockSection.module.css'
 
 const calculateCoordinates = (radius, angle) => ({
 	x: radius * Math.cos((angle * Math.PI) / 180),
@@ -33,19 +34,22 @@ const describeCircle = (outerRadius, innerRadius, segmentsCount) => {
 export const LockSvgComponent = ({ outerRadius, innerRadius, segmentsCount = 32, disabledSegments = [5, 10, 31] }) => {
 	const pathData = describeCircle(outerRadius, innerRadius, segmentsCount)
 	return (
-		<svg style={{
+		<svg 
+		className={styles.svg}
+		style={{
 			width: `${outerRadius * 2}`,
 			height: `${outerRadius * 2}`
 			
-		}} xmlns="http://www.w3.org/2000/svg">
+		}} 
+		xmlns="http://www.w3.org/2000/svg">
 			<g
-				style={{ transform: `translate(${outerRadius}px, ${outerRadius}px` }}
+				style={{ transform: `translate(50%, 50%)` }}
 			>
 				{pathData.map((path, index) => {
 					if (disabledSegments.includes(index)) {
 						return <path key={index} d={`${path}`} fill="transparent" stroke="transparent" strokeWidth="0.5" />
 					} else {
-						return <path key={index} d={`${path}`} fill="yellow" stroke="black" strokeWidth="0.5" />
+						return <path key={index} d={`${path}`} fill="rgba(0, 255, 255, 0.5)" stroke="black" strokeWidth="0.5" />
 					}
 				})}
 			</g>

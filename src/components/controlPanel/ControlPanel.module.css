@@ -1,6 +1,9 @@
 .controlPanel {
 	display: flex;
 	flex-direction: row;
+	padding: 1rem;
+	background-color: rgba(0, 0, 0, 0.5);
+	border: 1px solid white;
 }
 .controlPanel > * {
 	flex: 1;
