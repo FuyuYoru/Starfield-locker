@@ -63,7 +63,7 @@ export const LockerBoard = ({ sections }) => {
 								<LockSvgComponent
 									key={index}
 									outerRadius={200 - (20 * index) - 5 * index}
-									innerRadius={180 - (20 * index) - 5 * index}
+									innerRadius={180 - (20 * index) - 2.5 * index}
 									segmentsCount={32}
 									disabledSegments={sections[value].segments} />
 							)

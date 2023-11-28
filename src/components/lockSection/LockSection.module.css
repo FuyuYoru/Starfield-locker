@@ -2,9 +2,9 @@
 	transition: transform 0.3s ease-in-out;
 }
 
-@media (min-width: 360px) and (max-width: 1368px) {
+@media (min-width: 360px) and (max-width: 768px) {
 	.svg {
-		transform: scale(0.7);
+		transform: scale(0.6);
 	}
 }
 

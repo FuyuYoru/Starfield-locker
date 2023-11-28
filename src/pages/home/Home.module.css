@@ -4,4 +4,8 @@
 	align-items: center;
 	gap: 50px;
 	font-family: 'Marske';
+	border: 2px solid black;
+	border-radius: 20px;
+	padding: 1rem 2rem;
+	color: white;
 }
