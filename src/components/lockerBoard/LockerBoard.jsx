@@ -72,7 +72,9 @@ export const LockerBoard = ({ sections }) => {
 				</div>
 				<ControlPanel
 					onRotateLeft={digipick ? (displacement) => handleRotateLeft(digipick.properties.indexes, displacement) : null}
-					onTryUnlock={() => handleTryUnlock(digipick.properties.indexes, sections[`section_${currSection}`].segments, digipick.id)}
+					onTryUnlock={digipick ?
+						() => handleTryUnlock(digipick.properties.indexes, sections[`section_${currSection}`].segments, digipick.id)
+						: null}
 					onRotateRight={digipick ? (displacement) => handleRotateRight(digipick.properties.indexes, displacement) : null}
 				/>
 			</div>
