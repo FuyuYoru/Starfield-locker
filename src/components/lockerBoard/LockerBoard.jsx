@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { LockSvgComponent } from "../lockSection/LockSectionComponent.jsx";
+import { LockSvgComponent } from "../lockSection/LockSectionComponent.tsx";
 import styles from './LockerBoard.module.css';
 import { Digipick } from "../digipick/Digipick.jsx";
 import { ControlPanel } from "../controlPanel/ControlPanel.jsx";
