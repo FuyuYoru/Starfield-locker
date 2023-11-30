@@ -1,12 +1,12 @@
 import React from 'react';
 import styles from './LockSection.module.css';
 
-const calculateCoordinates = (radius, angle) => ({
+const calculateCoordinates = (radius: number, angle: number ): {x: number, y: number} => ({
 	x: radius * Math.cos((angle * Math.PI) / 180),
 	y: radius * Math.sin((angle * Math.PI) / 180),
 });
 
-const describeArc = (radius, startAngle, endAngle, sweepFlag) => {
+const describeArc = (radius: number, startAngle: number, endAngle: number, sweepFlag: number): string => {
 	const start = calculateCoordinates(radius, startAngle);
 	const end = calculateCoordinates(radius, endAngle);
 
@@ -15,8 +15,8 @@ const describeArc = (radius, startAngle, endAngle, sweepFlag) => {
 	return `M ${start.x} ${start.y} A ${radius} ${radius} 0 ${largeArcFlag} ${sweepFlag} ${end.x} ${end.y}`;
 };
 
-const describeCircle = (outerRadius, innerRadius, segmentsCount) => {
-	const resultPath = [];
+const describeCircle = (outerRadius: number, innerRadius: number, segmentsCount: number): Array<string> => {
+	const resultPath: Array<string> = [];
 	for (let i = 0; i < segmentsCount; i++) {
 		const startAngle = (360 / segmentsCount) * i;
 		const endAngle = (360 / segmentsCount) * (i + 1);;
