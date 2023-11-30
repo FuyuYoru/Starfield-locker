@@ -5,28 +5,6 @@ export const createLockerSegments = (levelProps) => {
 	return randomNumbers(0, 31, count).sort();
 };
 
-// const createDigipicksSlices = (lockerSegment) => {
-// 	const length = Math.floor(lockerSegment.length / 2);
-// 	const digipicks = {
-// 		'digipick_1': [],
-// 		'digipick_2': []
-// 	}
-// 	while (digipicks['digipick_1'].length < length) {
-// 		lockerSegment.forEach(element => {
-// 			const isSelection = Math.round(Math.random());
-// 			if (isSelection == true && digipicks['digipick_1'].includes(element) == false) {
-// 				digipicks['digipick_1'].push(element)
-// 			}
-// 		});
-// 	}
-// 	lockerSegment.map((value) => {
-// 		if (!digipicks.digipick_1.includes(value)) {
-// 			digipicks.digipick_2.push(value)
-// 		}
-// 	});
-// 	return digipicks
-// }
-
 const createDigipicksSlices = (lockerSegment) => {
 	const length = Math.floor(lockerSegment.length / 2);
 

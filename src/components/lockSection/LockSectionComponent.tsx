@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './LockSection.module.css'
+import styles from './LockSection.module.css';
 
 const calculateCoordinates = (radius, angle) => ({
 	x: radius * Math.cos((angle * Math.PI) / 180),
