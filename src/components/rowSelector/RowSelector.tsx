@@ -1,8 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, FC, Dispatch, SetStateAction } from "react";
 import styles from './RowSelector.module.css'
 
-export const RowSelector = ({ onChange, selectedItem }) => {
-	const levels = ['easy', 'medium', 'expert', 'master']
+interface IRowSelector {
+	onChange?: Dispatch<SetStateAction<string | null>>;
+	selectedItem: string | null,
+}
+
+export const RowSelector: FC<IRowSelector> = ({ onChange, selectedItem }) => {
+	const levels: string[] = ['easy', 'medium', 'expert', 'master'];
 	function changeSelectedItem(value) {
 		if (onChange) {
 			onChange(value)

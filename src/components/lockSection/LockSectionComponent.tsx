@@ -1,12 +1,12 @@
-import React from 'react';
+import React, { FC } from 'react';
 import styles from './LockSection.module.css';
 
-const calculateCoordinates = (radius, angle) => ({
+const calculateCoordinates = (radius: number, angle: number): { x: number, y: number } => ({
 	x: radius * Math.cos((angle * Math.PI) / 180),
 	y: radius * Math.sin((angle * Math.PI) / 180),
 });
 
-const describeArc = (radius, startAngle, endAngle, sweepFlag) => {
+const describeArc = (radius: number, startAngle: number, endAngle: number, sweepFlag: number): string => {
 	const start = calculateCoordinates(radius, startAngle);
 	const end = calculateCoordinates(radius, endAngle);
 
@@ -15,8 +15,8 @@ const describeArc = (radius, startAngle, endAngle, sweepFlag) => {
 	return `M ${start.x} ${start.y} A ${radius} ${radius} 0 ${largeArcFlag} ${sweepFlag} ${end.x} ${end.y}`;
 };
 
-const describeCircle = (outerRadius, innerRadius, segmentsCount) => {
-	const resultPath = [];
+const describeCircle = (outerRadius: number, innerRadius: number, segmentsCount: number): Array<string> => {
+	const resultPath: Array<string> = [];
 	for (let i = 0; i < segmentsCount; i++) {
 		const startAngle = (360 / segmentsCount) * i;
 		const endAngle = (360 / segmentsCount) * (i + 1);;
@@ -28,20 +28,27 @@ const describeCircle = (outerRadius, innerRadius, segmentsCount) => {
   	`;
 		resultPath.push(segmentPath)
 	}
-	return resultPath
+	return resultPath;
 }
 
-export const LockSvgComponent = ({ outerRadius, innerRadius, segmentsCount = 32, disabledSegments = [5, 10, 31] }) => {
+interface ILockSvgComponent {
+	outerRadius: number,
+	innerRadius: number,
+	segmentsCount?: number,
+	disabledSegments?: number[],
+}
+
+export const LockSvgComponent: FC<ILockSvgComponent> = ({ outerRadius, innerRadius, segmentsCount = 32, disabledSegments = [5, 10, 31] }) => {
 	const pathData = describeCircle(outerRadius, innerRadius, segmentsCount)
 	return (
-		<svg 
-		className={styles.svg}
-		style={{
-			width: `${outerRadius * 2}`,
-			height: `${outerRadius * 2}`
-			
-		}} 
-		xmlns="http://www.w3.org/2000/svg">
+		<svg
+			className={styles.svg}
+			style={{
+				width: `${outerRadius * 2}`,
+				height: `${outerRadius * 2}`
+
+			}}
+			xmlns="http://www.w3.org/2000/svg">
 			<g
 				style={{ transform: `translate(50%, 50%)` }}
 			>

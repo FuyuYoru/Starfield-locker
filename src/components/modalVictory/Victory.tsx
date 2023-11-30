@@ -1,12 +1,16 @@
-import React, { useState } from "react";
+import React, { useState, FC } from "react";
 import styles from './Victory.module.css'
-import useGameState from "../../hooks/gameState";
-import { RowSelector } from "../rowSelector/RowSelector.jsx";
+import useGameState from "../../hooks/gameState.js";
+import { RowSelector } from "../rowSelector/RowSelector.tsx";
 import { Button } from "../button/Button.jsx";
 
-export const VictoryModal = (props) => {
-	const [selectedLevel, setSelectedLevel] = useState(null);
-	const [errorMessage, setErrorMessage] = useState(null);
+interface IVictoryModal {
+	onClick?: () => void,
+}
+
+export const VictoryModal: FC<IVictoryModal> = ({ onClick }) => {
+	const [selectedLevel, setSelectedLevel] = useState<string | null>('');
+	const [errorMessage, setErrorMessage] = useState<string | null>(null);
 	const { startGame } = useGameState(selectedLevel)
 
 	const handleStartGame = () => {
@@ -14,8 +18,8 @@ export const VictoryModal = (props) => {
 			setErrorMessage('Нужно выбрать уровень..')
 			return
 		}
-		if (props.onClick) {
-			props.onClick()
+		if (onClick) {
+			onClick()
 		}
 		startGame()
 	}
