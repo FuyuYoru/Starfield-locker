@@ -1,12 +1,19 @@
-import React, { useState } from "react";
+import React, { useState, FC } from "react";
 import styles from './digipick.module.css'
 
-const calculateCoordinates = (radius, angle) => ({
+interface IDigipick {
+	radius: number,
+	markersPosition: number[],
+	isAdaptive: boolean,
+
+}
+
+const calculateCoordinates = (radius: number, angle: number) => ({
 	x: radius * Math.cos((angle * Math.PI) / 180),
 	y: radius * Math.sin((angle * Math.PI) / 180),
 });
 
-export const Digipick = ({ radius, markersPosition, markerColor = 'red', circleColor = 'black', isAdaptive }) => {
+export const Digipick: FC<IDigipick> = ({ radius, markersPosition, isAdaptive }) => {
 
 	return (
 		<svg
