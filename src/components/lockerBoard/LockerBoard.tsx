@@ -1,22 +1,31 @@
-import React, { useState } from "react";
+import React, { FC, useState } from "react";
 import { LockSvgComponent } from "../lockSection/LockSectionComponent.tsx";
 import styles from './LockerBoard.module.css';
-import { Digipick } from "../digipick/Digipick.jsx";
+import { Digipick } from "../digipick/Digipick.tsx";
 import { ControlPanel } from "../controlPanel/ControlPanel.jsx";
 import { useSelector, useDispatch } from "react-redux";
 import { getActiveDigipick } from "../../redux/selectors/activeDigipick.js";
 import { changePosition, setIsUsed } from "../../redux/slices/digipicksSlice.js";
-import { changeSection } from "../../redux/slices/lockSectionsSlice.js";
+import { changeSection } from "../../redux/slices/lockSectionsSlice";
 import { createPortal } from "react-dom";
 import infoboardStyles from "../../pages/board/Board.module.css";
 
+interface IHandleTry {
+	digipickMarkers: number[],
+	sectionMarkers: number[],
+	digipickID: number,
+}
+interface IRotate {
+	markers: number[],
+	displacement?: number, 
+}
 
 export const LockerBoard = ({ sections }) => {
 	const dispatch = useDispatch();
 	const digipick = useSelector(state => getActiveDigipick(state));
 	const currSection = useSelector(state => state.lockSections.activeSection)
 
-	const handleTryUnlock = (digipickMarkers, sectionMarkers, digipickID) => {
+	const handleTryUnlock = ({digipickMarkers, sectionMarkers, digipickID}: IHandleTry): void => {
 		for (let i = 0; i < digipickMarkers.length; i++) {
 			if (!sectionMarkers.includes(digipickMarkers[i])) {
 				return
@@ -30,7 +39,7 @@ export const LockerBoard = ({ sections }) => {
 		}))
 	}
 
-	const handleRotateLeft = (markers, displacement) => {
+	const handleRotateLeft = ({markers, displacement}: IRotate) => {
 		const tmp = rotateMarkers('left', markers, displacement)
 		dispatch(changePosition({
 			digipickID: digipick.id,
@@ -38,7 +47,7 @@ export const LockerBoard = ({ sections }) => {
 		}))
 	};
 
-	const handleRotateRight = (markers, displacement) => {
+	const handleRotateRight = ({markers, displacement}: IRotate) => {
 		const tmp = rotateMarkers('right', markers, displacement)
 		dispatch(changePosition({
 			digipickID: digipick.id,
@@ -73,7 +82,11 @@ export const LockerBoard = ({ sections }) => {
 				<ControlPanel
 					onRotateLeft={digipick ? (displacement) => handleRotateLeft(digipick.properties.indexes, displacement) : null}
 					onTryUnlock={digipick ?
-						() => handleTryUnlock(digipick.properties.indexes, sections[`section_${currSection}`].segments, digipick.id)
+						() => handleTryUnlock({
+							digipickMarkers: digipick.properties.indexes,
+							sectionMarkers: sections[`section_${currSection}`].segments,
+							digipickID: digipick.id,
+						})
 						: null}
 					onRotateRight={digipick ? (displacement) => handleRotateRight(digipick.properties.indexes, displacement) : null}
 				/>

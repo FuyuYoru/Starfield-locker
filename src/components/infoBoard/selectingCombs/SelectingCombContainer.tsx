@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './SelectingCombContainer.module.css';
 import { useSelector, useDispatch } from 'react-redux';
-import { Digipick } from '../../digipick/Digipick.jsx';
+import { Digipick } from '../../digipick/Digipick';
 import { setCurrentDigipick } from '../../../redux/slices/activeItemsSlice.js';
 import shuffle from '../../../utils/shuffleArray.js';
 
@@ -26,8 +26,6 @@ const SelectingCombContainer = () => {
 							<Digipick
 								radius={30}
 								markersPosition={digipicks[value].indexes}
-								markerColor='red'
-								circleColor='white'
 								isAdaptive={false}
 							/>
 						</span>)
@@ -38,8 +36,7 @@ const SelectingCombContainer = () => {
 							<Digipick
 								radius={30}
 								markersPosition={[]}
-								markerColor='red'
-								circleColor='white'
+								isAdaptive = {true}
 							/>
 						</span>)
 				)}
