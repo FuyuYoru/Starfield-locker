@@ -1,12 +1,18 @@
 import React, { useState } from "react";
-import { Button } from "../button/Button.jsx";
+import { Button } from "../button/Button";
 import styles from './ControlPanel.module.css'
 import { useRef } from "react";
 import { NavLink } from "react-router-dom";
 import useGameState from "../../hooks/gameState.js";
 
-export const ControlPanel = ({ onRotateRight, onRotateLeft, onTryUnlock }) => {
-	const [intervalID, setIntervalID] = useState(false);
+interface IControlPanel {
+	onRotateRight: void,
+	onRotateLeft: void,
+	onTryUnlock: void,
+}
+
+export const ControlPanel = ({ onRotateRight, onRotateLeft, onTryUnlock } : IControlPanel) => {
+	const [intervalID, setIntervalID] = useState<NodeJS.Timeout>();
 	const navLinkRef = useRef()
 	const { stopGame } = useGameState()
 	
@@ -15,7 +21,7 @@ export const ControlPanel = ({ onRotateRight, onRotateLeft, onTryUnlock }) => {
 		navLinkRef.current.click()
 	}
 
-	const onMouseDown = (event) => {
+	const onMouseDown = (event: any) => {
 		const id = setInterval(() => {
 			event.target.click()
 		}, 100);
@@ -34,17 +40,17 @@ export const ControlPanel = ({ onRotateRight, onRotateLeft, onTryUnlock }) => {
 				Try
 			</Button>
 			<Button
-				onMouseDown={(event) => onMouseDown(event)}
+				onMouseDown={(event: Event) => onMouseDown(event)}
 				onMouseUp={onMouseUp}
-				onClick={onRotateLeft ? () => onRotateLeft(1) : null}
+				onClick={onRotateLeft}
 				iconPosition='left'
 			>
 				Влево
 			</Button>
 			<Button
-				onMouseDown={(event) => onMouseDown(event)}
+				onMouseDown={(event: Event) => onMouseDown(event)}
 				onMouseUp={onMouseUp}
-				onClick={onRotateRight ? () => onRotateRight(1) : null}
+				onClick={onRotateRight}
 				iconPosition='right'
 			>
 				Вправо

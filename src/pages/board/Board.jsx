@@ -6,9 +6,9 @@ import Level from "../../components/infoBoard/Level.jsx";
 import SelectingCombContainer from "../../components/infoBoard/selectingCombs/SelectingCombContainer.tsx";
 import { UseSelector, useSelector } from "react-redux/es/hooks/useSelector.js";
 import { useEffect, useState } from "react";
-import { allSections } from "../../redux/selectors/lockSections.js";
+import { allSections } from "../../redux/selectors/lockSections";
 import { createPortal } from "react-dom";
-import { VictoryModal } from "../../components/modalVictory/Victory.tsx";
+import { VictoryModal } from "../../components/modalVictory/Victory";
 export const Board = () => {
 	const lockSections = useSelector(state => allSections(state))
 	const [isVictory, setIsVictory] = useState(false);

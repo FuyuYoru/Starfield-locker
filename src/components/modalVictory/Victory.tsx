@@ -1,8 +1,8 @@
 import React, { useState, FC } from "react";
 import styles from './Victory.module.css'
 import useGameState from "../../hooks/gameState.js";
-import { RowSelector } from "../rowSelector/RowSelector.tsx";
-import { Button } from "../button/Button.jsx";
+import { RowSelector } from "../rowSelector/RowSelector";
+import { Button } from "../button/Button";
 
 interface IVictoryModal {
 	onClick?: () => void,
