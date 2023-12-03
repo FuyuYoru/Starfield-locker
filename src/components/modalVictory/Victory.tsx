@@ -9,14 +9,14 @@ interface IVictoryModal {
 }
 
 export const VictoryModal: FC<IVictoryModal> = ({ onClick }) => {
-	const [selectedLevel, setSelectedLevel] = useState<string | null>('');
+	const [selectedLevel, setSelectedLevel] = useState<string | null>(null);
 	const [errorMessage, setErrorMessage] = useState<string | null>(null);
 	const { startGame } = useGameState(selectedLevel)
 
 	const handleStartGame = () => {
 		if (selectedLevel === null) {
 			setErrorMessage('Нужно выбрать уровень..')
-			return
+			return;
 		}
 		if (onClick) {
 			onClick()

@@ -6,14 +6,14 @@ import { NavLink } from "react-router-dom";
 import useGameState from "../../hooks/gameState.js";
 
 interface IControlPanel {
-	onRotateRight: void,
-	onRotateLeft: void,
-	onTryUnlock: void,
+	onRotateRight: (() => void) | null,
+	onRotateLeft: (() => void) | null,
+	onTryUnlock: (() => void) | null,
 }
 
 export const ControlPanel = ({ onRotateRight, onRotateLeft, onTryUnlock }: IControlPanel) => {
 	const [intervalID, setIntervalID] = useState<NodeJS.Timeout>();
-	const navLinkRef: RefObject<HTMLAnchorElement> = useRef<Ref<HTMLAnchorElement>>()
+	const navLinkRef = useRef<HTMLAnchorElement>(null);
 	// const myRef: MutableRefObject<HTMLAnchorElement | undefined> = navLinkRef as MutableRefObject<HTMLAnchorElement | undefined>;
 	const { stopGame } = useGameState()
 
