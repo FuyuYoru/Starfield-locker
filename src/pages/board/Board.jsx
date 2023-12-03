@@ -9,6 +9,7 @@ import { useEffect, useState } from "react";
 import { allSections } from "../../redux/selectors/lockSections.js";
 import { createPortal } from "react-dom";
 import { VictoryModal } from "../../components/modalVictory/Victory.tsx";
+
 export const Board = () => {
 	const lockSections = useSelector(state => allSections(state))
 	const [isVictory, setIsVictory] = useState(false);

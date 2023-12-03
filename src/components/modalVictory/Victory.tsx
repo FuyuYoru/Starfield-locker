@@ -1,7 +1,7 @@
 import React, { useState, FC } from "react";
 import styles from './Victory.module.css'
 import useGameState from "../../hooks/gameState.js";
-import { RowSelector } from "../rowSelector/RowSelector.tsx";
+import { RowSelector } from "../rowSelector/RowSelector";
 import { Button } from "../button/Button.jsx";
 
 interface IVictoryModal {

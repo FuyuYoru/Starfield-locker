@@ -8,7 +8,7 @@ interface IRowSelector {
 
 export const RowSelector: FC<IRowSelector> = ({ onChange, selectedItem }) => {
 	const levels: string[] = ['easy', 'medium', 'expert', 'master'];
-	function changeSelectedItem(value) {
+	function changeSelectedItem(value: string) {
 		if (onChange) {
 			onChange(value)
 		}

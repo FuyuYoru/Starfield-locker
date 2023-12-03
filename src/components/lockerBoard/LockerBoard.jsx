@@ -5,8 +5,8 @@ import { Digipick } from "../digipick/Digipick.jsx";
 import { ControlPanel } from "../controlPanel/ControlPanel.jsx";
 import { useSelector, useDispatch } from "react-redux";
 import { getActiveDigipick } from "../../redux/selectors/activeDigipick.js";
-import { changePosition, setIsUsed } from "../../redux/slices/digipicksSlice.js";
-import { changeSection } from "../../redux/slices/lockSectionsSlice.js";
+import { changePosition, setIsUsed } from "../../redux/slices/digipicksSlice.ts";
+import { changeSection } from "../../redux/slices/lockSectionsSlice.ts";
 import { createPortal } from "react-dom";
 import infoboardStyles from "../../pages/board/Board.module.css";
 
