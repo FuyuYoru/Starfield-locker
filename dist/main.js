@@ -6467,7 +6467,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var _Victory_module_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Victory.module.css */ "./src/components/modalVictory/Victory.module.css");
 /* harmony import */ var _hooks_gameState_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../hooks/gameState.js */ "./src/hooks/gameState.js");
-/* harmony import */ var _rowSelector_RowSelector_tsx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../rowSelector/RowSelector.tsx */ "./src/components/rowSelector/RowSelector.tsx");
+/* harmony import */ var _rowSelector_RowSelector__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../rowSelector/RowSelector */ "./src/components/rowSelector/RowSelector.tsx");
 /* harmony import */ var _button_Button_jsx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../button/Button.jsx */ "./src/components/button/Button.jsx");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -6506,7 +6506,7 @@ var VictoryModal = function VictoryModal(_ref) {
     className: _Victory_module_css__WEBPACK_IMPORTED_MODULE_1__["default"].overlay
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: _Victory_module_css__WEBPACK_IMPORTED_MODULE_1__["default"].modalContainer
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h2", null, " \u041C\u043E\u0438 \u043F\u043E\u0437\u0434\u0440\u0430\u0432\u043B\u0435\u043D\u0438\u044F.. "), errorMessage !== null ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h2", null, errorMessage) : null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_rowSelector_RowSelector_tsx__WEBPACK_IMPORTED_MODULE_3__.RowSelector, {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h2", null, " \u041C\u043E\u0438 \u043F\u043E\u0437\u0434\u0440\u0430\u0432\u043B\u0435\u043D\u0438\u044F.. "), errorMessage !== null ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h2", null, errorMessage) : null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_rowSelector_RowSelector__WEBPACK_IMPORTED_MODULE_3__.RowSelector, {
     onChange: setSelectedLevel,
     selectedItem: selectedLevel
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_button_Button_jsx__WEBPACK_IMPORTED_MODULE_4__.Button, {
@@ -6551,6 +6551,78 @@ var RowSelector = function RowSelector(_ref) {
     }, value);
   })));
 };
+
+/***/ }),
+
+/***/ "./src/redux/slices/activeItemsSlice.ts":
+/*!**********************************************!*\
+  !*** ./src/redux/slices/activeItemsSlice.ts ***!
+  \**********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   clearActiveItems: () => (/* binding */ clearActiveItems),
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__),
+/* harmony export */   setCurrentDigipick: () => (/* binding */ setCurrentDigipick),
+/* harmony export */   setCurrentLevel: () => (/* binding */ setCurrentLevel)
+/* harmony export */ });
+/* harmony import */ var _reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @reduxjs/toolkit */ "./node_modules/@reduxjs/toolkit/dist/redux-toolkit.esm.js");
+
+var initialState = {
+  activeDigipick: null,
+  currentLevel: null,
+  currentSection: null
+};
+var activeItems = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_0__.createSlice)({
+  name: 'activeItems',
+  initialState: initialState,
+  reducers: {
+    setCurrentDigipick: function setCurrentDigipick(state, action) {
+      var digipickID = action.payload.digipickID;
+      state.activeDigipick = digipickID;
+    },
+    setCurrentLevel: function setCurrentLevel(state, action) {
+      var level = action.payload.level;
+      state.currentLevel = level;
+    },
+    clearActiveItems: function clearActiveItems(state) {
+      return Object.assign({}, initialState);
+    }
+  }
+});
+var _activeItems$actions = activeItems.actions,
+  setCurrentDigipick = _activeItems$actions.setCurrentDigipick,
+  setCurrentLevel = _activeItems$actions.setCurrentLevel,
+  clearActiveItems = _activeItems$actions.clearActiveItems;
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (activeItems.reducer);
+
+/***/ }),
+
+/***/ "./src/redux/slices/index.ts":
+/*!***********************************!*\
+  !*** ./src/redux/slices/index.ts ***!
+  \***********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   rootReducer: () => (/* binding */ rootReducer)
+/* harmony export */ });
+/* harmony import */ var _reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @reduxjs/toolkit */ "./node_modules/redux/es/redux.js");
+/* harmony import */ var _lockSectionsSlice__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./lockSectionsSlice */ "./src/redux/slices/lockSectionsSlice.js");
+/* harmony import */ var _digipicksSlice__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./digipicksSlice */ "./src/redux/slices/digipicksSlice.js");
+/* harmony import */ var _activeItemsSlice__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./activeItemsSlice */ "./src/redux/slices/activeItemsSlice.ts");
+
+
+
+
+var rootReducer = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_3__.combineReducers)({
+  lockSections: _lockSectionsSlice__WEBPACK_IMPORTED_MODULE_0__["default"],
+  digipicks: _digipicksSlice__WEBPACK_IMPORTED_MODULE_1__["default"],
+  activeItems: _activeItemsSlice__WEBPACK_IMPORTED_MODULE_2__["default"]
+});
 
 /***/ }),
 
@@ -6861,8 +6933,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _SelectingCombContainer_module_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./SelectingCombContainer.module.css */ "./src/components/infoBoard/selectingCombs/SelectingCombContainer.module.css");
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var _digipick_Digipick_jsx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../digipick/Digipick.jsx */ "./src/components/digipick/Digipick.jsx");
-/* harmony import */ var _redux_slices_activeItemsSlice_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../redux/slices/activeItemsSlice.js */ "./src/redux/slices/activeItemsSlice.js");
+/* harmony import */ var _redux_slices_activeItemsSlice_ts__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../redux/slices/activeItemsSlice.ts */ "./src/redux/slices/activeItemsSlice.ts");
 /* harmony import */ var _utils_shuffleArray_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../utils/shuffleArray.js */ "./src/utils/shuffleArray.js");
+/* harmony import */ var _redux_store__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../redux/store */ "./src/redux/store.js");
+
 
 
 
@@ -6874,6 +6948,9 @@ var SelectingCombContainer = function SelectingCombContainer() {
     return state.digipicks;
   });
   var dispatch = (0,react_redux__WEBPACK_IMPORTED_MODULE_2__.useDispatch)();
+  _redux_store__WEBPACK_IMPORTED_MODULE_6__.store.subscribe(function () {
+    return console.log(_redux_store__WEBPACK_IMPORTED_MODULE_6__.store.getState());
+  });
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: _SelectingCombContainer_module_css__WEBPACK_IMPORTED_MODULE_1__["default"].selectingComb
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
@@ -6890,7 +6967,7 @@ var SelectingCombContainer = function SelectingCombContainer() {
     return !digipicks[value].isUsed ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
       key: index,
       onClick: function onClick() {
-        return dispatch((0,_redux_slices_activeItemsSlice_js__WEBPACK_IMPORTED_MODULE_4__.setCurrentDigipick)({
+        return dispatch((0,_redux_slices_activeItemsSlice_ts__WEBPACK_IMPORTED_MODULE_4__.setCurrentDigipick)({
           digipickID: value
         }));
       }
@@ -7080,9 +7157,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _utils_CalculateDistance_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../utils/CalculateDistance.js */ "./src/utils/CalculateDistance.js");
 /* harmony import */ var _redux_slices_digipicksSlice_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../redux/slices/digipicksSlice.js */ "./src/redux/slices/digipicksSlice.js");
 /* harmony import */ var _redux_slices_lockSectionsSlice_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../redux/slices/lockSectionsSlice.js */ "./src/redux/slices/lockSectionsSlice.js");
-/* harmony import */ var _redux_slices_activeItemsSlice_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../redux/slices/activeItemsSlice.js */ "./src/redux/slices/activeItemsSlice.js");
+/* harmony import */ var _redux_slices_activeItemsSlice_ts__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../redux/slices/activeItemsSlice.ts */ "./src/redux/slices/activeItemsSlice.ts");
 /* harmony import */ var _resources_data_levelPropreties_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../resources/data/levelPropreties.js */ "./src/resources/data/levelPropreties.js");
-
 
 
 
@@ -7117,7 +7193,7 @@ var useGameState = function useGameState(selectedItem) {
     dispatch((0,_redux_slices_digipicksSlice_js__WEBPACK_IMPORTED_MODULE_4__.addDigipicks)({
       arrayObjects: digipicksArray
     }));
-    dispatch((0,_redux_slices_activeItemsSlice_js__WEBPACK_IMPORTED_MODULE_6__.setCurrentLevel)({
+    dispatch((0,_redux_slices_activeItemsSlice_ts__WEBPACK_IMPORTED_MODULE_6__.setCurrentLevel)({
       level: selectedItem
     }));
     dispatch((0,_redux_slices_lockSectionsSlice_js__WEBPACK_IMPORTED_MODULE_5__.setCurrentSection)({
@@ -7125,7 +7201,7 @@ var useGameState = function useGameState(selectedItem) {
     }));
   };
   var stopGame = function stopGame() {
-    dispatch((0,_redux_slices_activeItemsSlice_js__WEBPACK_IMPORTED_MODULE_6__.clearActiveItems)());
+    dispatch((0,_redux_slices_activeItemsSlice_ts__WEBPACK_IMPORTED_MODULE_6__.clearActiveItems)());
     dispatch((0,_redux_slices_digipicksSlice_js__WEBPACK_IMPORTED_MODULE_4__.clearDigipicks)());
     dispatch((0,_redux_slices_lockSectionsSlice_js__WEBPACK_IMPORTED_MODULE_5__.clearLockSections)());
   };
@@ -7450,110 +7526,6 @@ var allSections = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_0__.createSelecto
 
 /***/ }),
 
-/***/ "./src/redux/slices/activeItemsSlice.js":
-/*!**********************************************!*\
-  !*** ./src/redux/slices/activeItemsSlice.js ***!
-  \**********************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   clearActiveItems: () => (/* binding */ clearActiveItems),
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__),
-/* harmony export */   setCurrentDigipick: () => (/* binding */ setCurrentDigipick),
-/* harmony export */   setCurrentLevel: () => (/* binding */ setCurrentLevel)
-/* harmony export */ });
-/* harmony import */ var _reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @reduxjs/toolkit */ "./node_modules/@reduxjs/toolkit/dist/redux-toolkit.esm.js");
-function _typeof(o) {
-  "@babel/helpers - typeof";
-
-  return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) {
-    return typeof o;
-  } : function (o) {
-    return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o;
-  }, _typeof(o);
-}
-function ownKeys(e, r) {
-  var t = Object.keys(e);
-  if (Object.getOwnPropertySymbols) {
-    var o = Object.getOwnPropertySymbols(e);
-    r && (o = o.filter(function (r) {
-      return Object.getOwnPropertyDescriptor(e, r).enumerable;
-    })), t.push.apply(t, o);
-  }
-  return t;
-}
-function _objectSpread(e) {
-  for (var r = 1; r < arguments.length; r++) {
-    var t = null != arguments[r] ? arguments[r] : {};
-    r % 2 ? ownKeys(Object(t), !0).forEach(function (r) {
-      _defineProperty(e, r, t[r]);
-    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys(Object(t)).forEach(function (r) {
-      Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r));
-    });
-  }
-  return e;
-}
-function _defineProperty(obj, key, value) {
-  key = _toPropertyKey(key);
-  if (key in obj) {
-    Object.defineProperty(obj, key, {
-      value: value,
-      enumerable: true,
-      configurable: true,
-      writable: true
-    });
-  } else {
-    obj[key] = value;
-  }
-  return obj;
-}
-function _toPropertyKey(arg) {
-  var key = _toPrimitive(arg, "string");
-  return _typeof(key) === "symbol" ? key : String(key);
-}
-function _toPrimitive(input, hint) {
-  if (_typeof(input) !== "object" || input === null) return input;
-  var prim = input[Symbol.toPrimitive];
-  if (prim !== undefined) {
-    var res = prim.call(input, hint || "default");
-    if (_typeof(res) !== "object") return res;
-    throw new TypeError("@@toPrimitive must return a primitive value.");
-  }
-  return (hint === "string" ? String : Number)(input);
-}
-
-var initialState = {
-  activeDigipick: null,
-  currentLevel: null,
-  currentSection: null
-};
-var activeItems = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_0__.createSlice)({
-  name: 'activeItems',
-  initialState: initialState,
-  reducers: {
-    setCurrentDigipick: function setCurrentDigipick(state, action) {
-      var digipickID = action.payload.digipickID;
-      state.activeDigipick = digipickID;
-    },
-    setCurrentLevel: function setCurrentLevel(state, action) {
-      var level = action.payload.level;
-      state.currentLevel = level;
-    },
-    clearActiveItems: function clearActiveItems(state) {
-      return _objectSpread({}, initialState);
-    }
-  }
-});
-var _activeItems$actions = activeItems.actions,
-  setCurrentDigipick = _activeItems$actions.setCurrentDigipick,
-  setCurrentLevel = _activeItems$actions.setCurrentLevel,
-  clearActiveItems = _activeItems$actions.clearActiveItems;
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (activeItems.reducer);
-
-/***/ }),
-
 /***/ "./src/redux/slices/digipicksSlice.js":
 /*!********************************************!*\
   !*** ./src/redux/slices/digipicksSlice.js ***!
@@ -7680,32 +7652,6 @@ var _digipicks$actions = digipicks.actions,
   clearDigipicks = _digipicks$actions.clearDigipicks;
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (digipicks.reducer);
-
-/***/ }),
-
-/***/ "./src/redux/slices/index.js":
-/*!***********************************!*\
-  !*** ./src/redux/slices/index.js ***!
-  \***********************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   rootReducer: () => (/* binding */ rootReducer)
-/* harmony export */ });
-/* harmony import */ var _reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @reduxjs/toolkit */ "./node_modules/redux/es/redux.js");
-/* harmony import */ var _lockSectionsSlice__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./lockSectionsSlice */ "./src/redux/slices/lockSectionsSlice.js");
-/* harmony import */ var _digipicksSlice__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./digipicksSlice */ "./src/redux/slices/digipicksSlice.js");
-/* harmony import */ var _activeItemsSlice__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./activeItemsSlice */ "./src/redux/slices/activeItemsSlice.js");
-
-
-
-
-var rootReducer = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_3__.combineReducers)({
-  lockSections: _lockSectionsSlice__WEBPACK_IMPORTED_MODULE_0__["default"],
-  digipicks: _digipicksSlice__WEBPACK_IMPORTED_MODULE_1__["default"],
-  activeItems: _activeItemsSlice__WEBPACK_IMPORTED_MODULE_2__["default"]
-});
 
 /***/ }),
 
@@ -7846,7 +7792,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   store: () => (/* binding */ store)
 /* harmony export */ });
 /* harmony import */ var _reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @reduxjs/toolkit */ "./node_modules/@reduxjs/toolkit/dist/redux-toolkit.esm.js");
-/* harmony import */ var _slices__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./slices */ "./src/redux/slices/index.js");
+/* harmony import */ var _slices__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./slices */ "./src/redux/slices/index.ts");
 
 
 var store = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_1__.configureStore)({

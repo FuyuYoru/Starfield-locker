@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { RefObject, Ref, useState } from "react";
 import { Button } from "../button/Button";
 import styles from './ControlPanel.module.css'
 import { useRef } from "react";
@@ -11,14 +11,17 @@ interface IControlPanel {
 	onTryUnlock: void,
 }
 
-export const ControlPanel = ({ onRotateRight, onRotateLeft, onTryUnlock } : IControlPanel) => {
+export const ControlPanel = ({ onRotateRight, onRotateLeft, onTryUnlock }: IControlPanel) => {
 	const [intervalID, setIntervalID] = useState<NodeJS.Timeout>();
-	const navLinkRef = useRef()
+	const navLinkRef: RefObject<HTMLAnchorElement> = useRef<Ref<HTMLAnchorElement>>()
+	// const myRef: MutableRefObject<HTMLAnchorElement | undefined> = navLinkRef as MutableRefObject<HTMLAnchorElement | undefined>;
 	const { stopGame } = useGameState()
-	
+
 	const HandleHomeTransition = () => {
 		stopGame()
-		navLinkRef.current.click()
+		if (navLinkRef.current) {
+			navLinkRef.current.click()
+		}
 	}
 
 	const onMouseDown = (event: any) => {
@@ -61,7 +64,9 @@ export const ControlPanel = ({ onRotateRight, onRotateLeft, onTryUnlock } : ICon
 			>
 				На главную
 			</Button>
-			<NavLink to={"/"} style={{ display: 'none' }} ref={navLinkRef} />
+			<NavLink to={"/"} style={{ display: 'none' }} ref={navLinkRef} >
+
+			</NavLink>
 		</div>
 	)
 }

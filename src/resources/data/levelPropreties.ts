@@ -25,8 +25,17 @@ const master = {
 	maxSegments: 7,
 	falseDigipicks: 5,
 }
+interface ILevel {
+	sectionsCount: number;
+	minSegments: number;
+	maxSegments: number;
+	falseDigipicks: number;
+}
+interface ILeves {
+	[key: string]: ILevel;
+}
 
-export const levelProps = {
+export const levelProps: ILeves = {
 	'easy': easy,
 	'medium': medium,
 	'expert': expert,

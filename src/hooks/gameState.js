@@ -2,13 +2,12 @@ import { useState, useEffect, useRef } from "react";
 import { useDispatch } from "react-redux";
 import { createLockerSegments, createDigipicks, createFakeDigipick } from "../utils/LockerSegments.js";
 import calculateDistance from "../utils/CalculateDistance.js";
-import { addDigipicks } from "../redux/slices/digipicksSlice.js";
-import { addSection, setCurrentSection } from "../redux/slices/lockSectionsSlice.js";
-import { setCurrentLevel } from "../redux/slices/activeItemsSlice.js";
-import { levelProps } from "../resources/data/levelPropreties.js";
-import { clearActiveItems } from "../redux/slices/activeItemsSlice.js";
-import { clearDigipicks } from "../redux/slices/digipicksSlice.js";
-import { clearLockSections } from "../redux/slices/lockSectionsSlice.js";
+import { addDigipicks } from "../redux/slices/digipicksSlice";
+import { addSection, setCurrentSection } from "../redux/slices/lockSectionsSlice";
+import { setCurrentLevel, clearActiveItems } from "../redux/slices/activeItemsSlice.ts";
+import { levelProps } from "../resources/data/levelPropreties.ts";
+import { clearDigipicks } from "../redux/slices/digipicksSlice.ts";
+import { clearLockSections } from "../redux/slices/lockSectionsSlice";
 
 
 const useGameState = (selectedItem) => {

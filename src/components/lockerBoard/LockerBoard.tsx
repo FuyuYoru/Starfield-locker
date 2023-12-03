@@ -2,14 +2,23 @@ import React, { FC, useState } from "react";
 import { LockSvgComponent } from "../lockSection/LockSectionComponent";
 import styles from './LockerBoard.module.css';
 import { Digipick } from "../digipick/Digipick";
-import { ControlPanel } from "../controlPanel/ControlPanel";
+import { ControlPanel } from "../controlPanel/ControlPanel.jsx";
 import { useSelector, useDispatch } from "react-redux";
 import { getActiveDigipick } from "../../redux/selectors/activeDigipick.js";
-import { changePosition, setIsUsed } from "../../redux/slices/digipicksSlice.js";
+import { changePosition, setIsUsed } from "../../redux/slices/digipicksSlice";
 import { changeSection } from "../../redux/slices/lockSectionsSlice";
 import { createPortal } from "react-dom";
 import infoboardStyles from "../../pages/board/Board.module.css";
 
+interface IHandleTry {
+	digipickMarkers: number[],
+	sectionMarkers: number[],
+	digipickID: number,
+}
+interface IRotate {
+	markers: number[],
+	displacement?: number,
+}
 
 export const LockerBoard = ({ sections }) => {
 	const dispatch = useDispatch();
@@ -82,7 +91,7 @@ export const LockerBoard = ({ sections }) => {
 	)
 }
 
-function rotateMarkers(type: string, markers: number[], displacement = 1) {
+function rotateMarkers(type: string, markers: number[], displacement: number = 1): Array<number> {
 	let result: number[] = []
 	if (type === 'left') {
 		result = [...markers].map((value) => {
@@ -95,5 +104,5 @@ function rotateMarkers(type: string, markers: number[], displacement = 1) {
 			return (tmp >= 0 ? tmp : 31)
 		})
 	}
-	return result
+	return result;
 }

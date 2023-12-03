@@ -1,9 +1,9 @@
 import React from "react";
 import styles from "./Board.module.css";
-import { LockerBoard } from "../../components/lockerBoard/LockerBoard.tsx";
+import { LockerBoard } from "../../components/lockerBoard/LockerBoard";
 import NameLvl from "../../components/infoBoard/NameLvl.jsx";
 import Level from "../../components/infoBoard/Level.jsx";
-import SelectingCombContainer from "../../components/infoBoard/selectingCombs/SelectingCombContainer.tsx";
+import SelectingCombContainer from "../../components/infoBoard/selectingCombs/SelectingCombContainer";
 import { UseSelector, useSelector } from "react-redux/es/hooks/useSelector.js";
 import { useEffect, useState } from "react";
 import { allSections } from "../../redux/selectors/lockSections";

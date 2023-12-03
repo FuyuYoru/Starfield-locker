@@ -2,12 +2,13 @@ import React from 'react';
 import styles from './SelectingCombContainer.module.css';
 import { useSelector, useDispatch } from 'react-redux';
 import { Digipick } from '../../digipick/Digipick';
-import { setCurrentDigipick } from '../../../redux/slices/activeItemsSlice.js';
-import shuffle from '../../../utils/shuffleArray.js';
+import { setCurrentDigipick } from '../../../redux/slices/activeItemsSlice';
+// import { setupStore } from '../../../redux/store';
 
 const SelectingCombContainer = () => {
 	const digipicks = useSelector(state => state.digipicks)
 	const dispatch = useDispatch()
+	// store.subscribe(() => console.log(store.getState()));
 	return (
 		<div className={styles.selectingComb}>
 			<div className={styles.topCountComb}>

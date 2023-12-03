@@ -13,7 +13,9 @@
 		"forceConsistentCasingInFileNames": true,
 		"strict": true,
 		"noEmit": true,
-		"isolatedModules": true
+		"isolatedModules": true,
+		"allowJs": true,
+		"checkJs": false,
 	},
 	"plugins": [
 		{
