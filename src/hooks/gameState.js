@@ -6,7 +6,7 @@ import { addDigipicks } from "../redux/slices/digipicksSlice";
 import { addSection, setCurrentSection } from "../redux/slices/lockSectionsSlice";
 import { setCurrentLevel, clearActiveItems } from "../redux/slices/activeItemsSlice.ts";
 import { levelProps } from "../resources/data/levelPropreties.ts";
-import { clearDigipicks } from "../redux/slices/digipicksSlice";
+import { clearDigipicks } from "../redux/slices/digipicksSlice.ts";
 import { clearLockSections } from "../redux/slices/lockSectionsSlice";
 
 

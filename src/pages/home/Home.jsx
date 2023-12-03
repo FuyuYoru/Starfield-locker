@@ -1,7 +1,7 @@
 import React from "react";
 import styles from './Home.module.css'
 import { NavLink } from "react-router-dom";
-import { RowSelector } from "../../components/rowSelector/RowSelector.tsx";
+import { RowSelector } from "../../components/rowSelector/RowSelector";
 import { Button } from "../../components/button/Button.jsx";
 import { useState, useRef } from "react";
 import useGameState from "../../hooks/gameState.js";

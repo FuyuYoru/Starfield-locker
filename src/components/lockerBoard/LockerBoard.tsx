@@ -5,7 +5,7 @@ import { Digipick } from "../digipick/Digipick";
 import { ControlPanel } from "../controlPanel/ControlPanel.jsx";
 import { useSelector, useDispatch } from "react-redux";
 import { getActiveDigipick } from "../../redux/selectors/activeDigipick.js";
-import { changePosition, setIsUsed } from "../../redux/slices/digipicksSlice.js";
+import { changePosition, setIsUsed } from "../../redux/slices/digipicksSlice";
 import { changeSection } from "../../redux/slices/lockSectionsSlice";
 import { createPortal } from "react-dom";
 import infoboardStyles from "../../pages/board/Board.module.css";
@@ -17,7 +17,7 @@ interface IHandleTry {
 }
 interface IRotate {
 	markers: number[],
-	displacement?: number, 
+	displacement?: number,
 }
 
 export const LockerBoard = ({ sections }) => {
@@ -25,7 +25,7 @@ export const LockerBoard = ({ sections }) => {
 	const digipick = useSelector(state => getActiveDigipick(state));
 	const currSection = useSelector(state => state.lockSections.activeSection)
 
-	const handleTryUnlock = ({digipickMarkers, sectionMarkers, digipickID}: IHandleTry): void => {
+	const handleTryUnlock = ({ digipickMarkers, sectionMarkers, digipickID }: IHandleTry): void => {
 		for (let i = 0; i < digipickMarkers.length; i++) {
 			if (!sectionMarkers.includes(digipickMarkers[i])) {
 				return
@@ -39,7 +39,7 @@ export const LockerBoard = ({ sections }) => {
 		}))
 	}
 
-	const handleRotateLeft = ({markers, displacement}: IRotate) => {
+	const handleRotateLeft = (markers: number[], displacement: number) => {
 		const tmp = rotateMarkers('left', markers, displacement)
 		dispatch(changePosition({
 			digipickID: digipick.id,
@@ -47,7 +47,7 @@ export const LockerBoard = ({ sections }) => {
 		}))
 	};
 
-	const handleRotateRight = ({markers, displacement}: IRotate) => {
+	const handleRotateRight = (markers: number[], displacement: number) => {
 		const tmp = rotateMarkers('right', markers, displacement)
 		dispatch(changePosition({
 			digipickID: digipick.id,
@@ -95,8 +95,8 @@ export const LockerBoard = ({ sections }) => {
 	)
 }
 
-function rotateMarkers(type, markers, displacement = 1) {
-	let result = []
+function rotateMarkers(type: string, markers: number[], displacement: number = 1): Array<number> {
+	let result: number[] = []
 	if (type === 'left') {
 		result = [...markers].map((value) => {
 			const tmp = value + displacement;
@@ -108,5 +108,5 @@ function rotateMarkers(type, markers, displacement = 1) {
 			return (tmp >= 0 ? tmp : 31)
 		})
 	}
-	return result
+	return result;
 }

@@ -1,7 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import shuffle from "../../utils/shuffleArray";
 
-<<<<<<< HEAD:src/redux/slices/digipicksSlice.ts
 interface IDigipick {
 	indexes: Array<number>;
 	distances: Array<number>;
@@ -13,9 +12,6 @@ interface DigipicksState {
 }
 
 const initialState: DigipicksState = {
-=======
-const initialState = {
->>>>>>> 4c2ba107e766a871f18c38093c2d2a3c45ee58b5:src/redux/slices/digipicksSlice.js
 
 }
 
@@ -47,9 +43,10 @@ const digipicks = createSlice({
 			const { digipickID, newPosition } = action.payload;
 			state[digipickID].indexes = newPosition
 		},
-		setIsUsed: (state, action: PayloadAction<{ digipickID: string; }>) => {
+		setIsUsed: (state, action: PayloadAction<{ digipickID: number; }>) => {
 			const { digipickID } = action.payload;
-			state[digipickID].isUsed = true;
+			const id = `digipick_${digipickID}`
+			state[id].isUsed = true;
 		},
 		clearDigipicks: (state) => {
 			return { ...initialState }

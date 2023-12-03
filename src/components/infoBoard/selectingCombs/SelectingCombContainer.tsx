@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './SelectingCombContainer.module.css';
 import { useSelector, useDispatch } from 'react-redux';
-import { Digipick } from '../../digipick/Digipick.jsx';
+import { Digipick } from '../../digipick/Digipick';
 import { setCurrentDigipick } from '../../../redux/slices/activeItemsSlice';
 // import { setupStore } from '../../../redux/store';
 

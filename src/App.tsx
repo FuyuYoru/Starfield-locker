@@ -3,12 +3,10 @@ import React, { useState, FC } from "react";
 import { Home } from "./pages/home/Home.jsx";
 import { Board } from "./pages/board/Board.jsx";
 import { BrowserRouter as Router, Route, Routes, } from "react-router-dom";
-import { LockerBoard } from './components/lockerBoard/LockerBoard.jsx';
 import ReactDOM from 'react-dom';
 import './index.css'
 import { setupStore } from './redux/store';
 import { Provider } from 'react-redux';
-import './index.css'
 
 interface AppState { }
 
