@@ -6375,67 +6375,20 @@ function persistAppliedTransitions(_window, transitions) {
 
 /***/ }),
 
-/***/ "./src/App.tsx":
-/*!*********************!*\
-  !*** ./src/App.tsx ***!
-  \*********************/
-/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
-
-
-
-var __importDefault = this && this.__importDefault || function (mod) {
-  return mod && mod.__esModule ? mod : {
-    "default": mod
-  };
-};
-Object.defineProperty(exports, "__esModule", ({
-  value: true
-}));
-exports.App = void 0;
-var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
-var Home_jsx_1 = __webpack_require__(/*! ./pages/home/Home.jsx */ "./src/pages/home/Home.jsx");
-var Board_jsx_1 = __webpack_require__(/*! ./pages/board/Board.jsx */ "./src/pages/board/Board.jsx");
-var react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/dist/index.js");
-var react_dom_1 = __importDefault(__webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js"));
-__webpack_require__(/*! ./index.css */ "./src/index.css");
-var store_js_1 = __webpack_require__(/*! ./redux/store.js */ "./src/redux/store.js");
-var react_redux_1 = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
-__webpack_require__(/*! ./index.css */ "./src/index.css");
-var App = function App() {
-  return react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement(react_redux_1.Provider, {
-    store: store_js_1.store
-  }, react_1["default"].createElement(react_router_dom_1.BrowserRouter, null, react_1["default"].createElement(react_router_dom_1.Routes, null, react_1["default"].createElement(react_router_dom_1.Route, {
-    path: '/',
-    element: react_1["default"].createElement(Home_jsx_1.Home, null)
-  }), react_1["default"].createElement(react_router_dom_1.Route, {
-    path: '/game',
-    element: react_1["default"].createElement(Board_jsx_1.Board, null)
-  })))));
-};
-exports.App = App;
-react_dom_1["default"].render(react_1["default"].createElement(exports.App, null), document.getElementById('root'));
-
-/***/ }),
-
 /***/ "./src/components/lockSection/LockSectionComponent.tsx":
 /*!*************************************************************!*\
   !*** ./src/components/lockSection/LockSectionComponent.tsx ***!
   \*************************************************************/
-/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   LockSvgComponent: () => (/* binding */ LockSvgComponent)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var _LockSection_module_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./LockSection.module.css */ "./src/components/lockSection/LockSection.module.css");
 
 
-
-var __importDefault = this && this.__importDefault || function (mod) {
-  return mod && mod.__esModule ? mod : {
-    "default": mod
-  };
-};
-Object.defineProperty(exports, "__esModule", ({
-  value: true
-}));
-exports.LockSvgComponent = void 0;
-var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
-var LockSection_module_css_1 = __importDefault(__webpack_require__(/*! ./LockSection.module.css */ "./src/components/lockSection/LockSection.module.css"));
 var calculateCoordinates = function calculateCoordinates(radius, angle) {
   return {
     x: radius * Math.cos(angle * Math.PI / 180),
@@ -6459,28 +6412,28 @@ var describeCircle = function describeCircle(outerRadius, innerRadius, segmentsC
   }
   return resultPath;
 };
-var LockSvgComponent = function LockSvgComponent(_a) {
-  var outerRadius = _a.outerRadius,
-    innerRadius = _a.innerRadius,
-    _b = _a.segmentsCount,
-    segmentsCount = _b === void 0 ? 32 : _b,
-    _c = _a.disabledSegments,
-    disabledSegments = _c === void 0 ? [5, 10, 31] : _c;
+var LockSvgComponent = function LockSvgComponent(_ref) {
+  var outerRadius = _ref.outerRadius,
+    innerRadius = _ref.innerRadius,
+    _ref$segmentsCount = _ref.segmentsCount,
+    segmentsCount = _ref$segmentsCount === void 0 ? 32 : _ref$segmentsCount,
+    _ref$disabledSegments = _ref.disabledSegments,
+    disabledSegments = _ref$disabledSegments === void 0 ? [5, 10, 31] : _ref$disabledSegments;
   var pathData = describeCircle(outerRadius, innerRadius, segmentsCount);
-  return react_1["default"].createElement("svg", {
-    className: LockSection_module_css_1["default"].svg,
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("svg", {
+    className: _LockSection_module_css__WEBPACK_IMPORTED_MODULE_1__["default"].svg,
     style: {
       width: "".concat(outerRadius * 2),
       height: "".concat(outerRadius * 2)
     },
     xmlns: "http://www.w3.org/2000/svg"
-  }, react_1["default"].createElement("g", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("g", {
     style: {
       transform: "translate(50%, 50%)"
     }
   }, pathData.map(function (path, index) {
     if (disabledSegments.includes(index)) {
-      return react_1["default"].createElement("path", {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("path", {
         key: index,
         d: "".concat(path),
         fill: "transparent",
@@ -6488,7 +6441,7 @@ var LockSvgComponent = function LockSvgComponent(_a) {
         strokeWidth: "0.5"
       });
     } else {
-      return react_1["default"].createElement("path", {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("path", {
         key: index,
         d: "".concat(path),
         fill: "rgba(0, 255, 255, 0.5)",
@@ -6498,7 +6451,106 @@ var LockSvgComponent = function LockSvgComponent(_a) {
     }
   })));
 };
-exports.LockSvgComponent = LockSvgComponent;
+
+/***/ }),
+
+/***/ "./src/components/modalVictory/Victory.tsx":
+/*!*************************************************!*\
+  !*** ./src/components/modalVictory/Victory.tsx ***!
+  \*************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   VictoryModal: () => (/* binding */ VictoryModal)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var _Victory_module_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Victory.module.css */ "./src/components/modalVictory/Victory.module.css");
+/* harmony import */ var _hooks_gameState_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../hooks/gameState.js */ "./src/hooks/gameState.js");
+/* harmony import */ var _rowSelector_RowSelector_tsx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../rowSelector/RowSelector.tsx */ "./src/components/rowSelector/RowSelector.tsx");
+/* harmony import */ var _button_Button_jsx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../button/Button.jsx */ "./src/components/button/Button.jsx");
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
+function _iterableToArrayLimit(r, l) { var t = null == r ? null : "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (null != t) { var e, n, i, u, a = [], f = !0, o = !1; try { if (i = (t = t.call(r)).next, 0 === l) { if (Object(t) !== t) return; f = !1; } else for (; !(f = (e = i.call(t)).done) && (a.push(e.value), a.length !== l); f = !0); } catch (r) { o = !0, n = r; } finally { try { if (!f && null != t["return"] && (u = t["return"](), Object(u) !== u)) return; } finally { if (o) throw n; } } return a; } }
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
+
+
+
+var VictoryModal = function VictoryModal(_ref) {
+  var onClick = _ref.onClick;
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(''),
+    _useState2 = _slicedToArray(_useState, 2),
+    selectedLevel = _useState2[0],
+    setSelectedLevel = _useState2[1];
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null),
+    _useState4 = _slicedToArray(_useState3, 2),
+    errorMessage = _useState4[0],
+    setErrorMessage = _useState4[1];
+  var _useGameState = (0,_hooks_gameState_js__WEBPACK_IMPORTED_MODULE_2__["default"])(selectedLevel),
+    startGame = _useGameState.startGame;
+  var handleStartGame = function handleStartGame() {
+    if (selectedLevel === null) {
+      setErrorMessage('Нужно выбрать уровень..');
+      return;
+    }
+    if (onClick) {
+      onClick();
+    }
+    startGame();
+  };
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+    className: _Victory_module_css__WEBPACK_IMPORTED_MODULE_1__["default"].overlay
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+    className: _Victory_module_css__WEBPACK_IMPORTED_MODULE_1__["default"].modalContainer
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h2", null, " \u041C\u043E\u0438 \u043F\u043E\u0437\u0434\u0440\u0430\u0432\u043B\u0435\u043D\u0438\u044F.. "), errorMessage !== null ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h2", null, errorMessage) : null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_rowSelector_RowSelector_tsx__WEBPACK_IMPORTED_MODULE_3__.RowSelector, {
+    onChange: setSelectedLevel,
+    selectedItem: selectedLevel
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_button_Button_jsx__WEBPACK_IMPORTED_MODULE_4__.Button, {
+    onClick: handleStartGame
+  }, 'Ещё разок? Выбери уровень')));
+};
+
+/***/ }),
+
+/***/ "./src/components/rowSelector/RowSelector.tsx":
+/*!****************************************************!*\
+  !*** ./src/components/rowSelector/RowSelector.tsx ***!
+  \****************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   RowSelector: () => (/* binding */ RowSelector)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var _RowSelector_module_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./RowSelector.module.css */ "./src/components/rowSelector/RowSelector.module.css");
+
+
+var RowSelector = function RowSelector(_ref) {
+  var onChange = _ref.onChange,
+    selectedItem = _ref.selectedItem;
+  var levels = ['easy', 'medium', 'expert', 'master'];
+  function changeSelectedItem(value) {
+    if (onChange) {
+      onChange(value);
+    }
+  }
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+    className: _RowSelector_module_css__WEBPACK_IMPORTED_MODULE_1__["default"].selectorContainer
+  }, levels.map(function (value, index) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
+      key: index,
+      onClick: function onClick() {
+        return changeSelectedItem(value);
+      },
+      className: value === selectedItem ? _RowSelector_module_css__WEBPACK_IMPORTED_MODULE_1__["default"].selectedItem : _RowSelector_module_css__WEBPACK_IMPORTED_MODULE_1__["default"].selectorItem
+    }, value);
+  })));
+};
 
 /***/ }),
 
@@ -6874,7 +6926,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var _lockSection_LockSectionComponent_tsx__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../lockSection/LockSectionComponent.tsx */ "./src/components/lockSection/LockSectionComponent.tsx");
-/* harmony import */ var _lockSection_LockSectionComponent_tsx__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_lockSection_LockSectionComponent_tsx__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _LockerBoard_module_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./LockerBoard.module.css */ "./src/components/lockerBoard/LockerBoard.module.css");
 /* harmony import */ var _digipick_Digipick_jsx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../digipick/Digipick.jsx */ "./src/components/digipick/Digipick.jsx");
 /* harmony import */ var _controlPanel_ControlPanel_jsx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../controlPanel/ControlPanel.jsx */ "./src/components/controlPanel/ControlPanel.jsx");
@@ -7013,148 +7064,6 @@ function rotateMarkers(type, markers) {
 
 /***/ }),
 
-/***/ "./src/components/modalVictory/Victory.jsx":
-/*!*************************************************!*\
-  !*** ./src/components/modalVictory/Victory.jsx ***!
-  \*************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   VictoryModal: () => (/* binding */ VictoryModal)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var _Victory_module_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Victory.module.css */ "./src/components/modalVictory/Victory.module.css");
-/* harmony import */ var _hooks_gameState__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../hooks/gameState */ "./src/hooks/gameState.js");
-/* harmony import */ var _rowSelector_RowSelector_jsx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../rowSelector/RowSelector.jsx */ "./src/components/rowSelector/RowSelector.jsx");
-/* harmony import */ var _button_Button_jsx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../button/Button.jsx */ "./src/components/button/Button.jsx");
-function _slicedToArray(arr, i) {
-  return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest();
-}
-function _nonIterableRest() {
-  throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
-}
-function _unsupportedIterableToArray(o, minLen) {
-  if (!o) return;
-  if (typeof o === "string") return _arrayLikeToArray(o, minLen);
-  var n = Object.prototype.toString.call(o).slice(8, -1);
-  if (n === "Object" && o.constructor) n = o.constructor.name;
-  if (n === "Map" || n === "Set") return Array.from(o);
-  if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen);
-}
-function _arrayLikeToArray(arr, len) {
-  if (len == null || len > arr.length) len = arr.length;
-  for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i];
-  return arr2;
-}
-function _iterableToArrayLimit(r, l) {
-  var t = null == r ? null : "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"];
-  if (null != t) {
-    var e,
-      n,
-      i,
-      u,
-      a = [],
-      f = !0,
-      o = !1;
-    try {
-      if (i = (t = t.call(r)).next, 0 === l) {
-        if (Object(t) !== t) return;
-        f = !1;
-      } else for (; !(f = (e = i.call(t)).done) && (a.push(e.value), a.length !== l); f = !0);
-    } catch (r) {
-      o = !0, n = r;
-    } finally {
-      try {
-        if (!f && null != t["return"] && (u = t["return"](), Object(u) !== u)) return;
-      } finally {
-        if (o) throw n;
-      }
-    }
-    return a;
-  }
-}
-function _arrayWithHoles(arr) {
-  if (Array.isArray(arr)) return arr;
-}
-
-
-
-
-
-var VictoryModal = function VictoryModal(props) {
-  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null),
-    _useState2 = _slicedToArray(_useState, 2),
-    selectedLevel = _useState2[0],
-    setSelectedLevel = _useState2[1];
-  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null),
-    _useState4 = _slicedToArray(_useState3, 2),
-    errorMessage = _useState4[0],
-    setErrorMessage = _useState4[1];
-  var _useGameState = (0,_hooks_gameState__WEBPACK_IMPORTED_MODULE_2__["default"])(selectedLevel),
-    startGame = _useGameState.startGame;
-  var handleStartGame = function handleStartGame() {
-    if (selectedLevel === null) {
-      setErrorMessage('Нужно выбрать уровень..');
-      return;
-    }
-    if (props.onClick) {
-      props.onClick();
-    }
-    startGame();
-  };
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-    className: _Victory_module_css__WEBPACK_IMPORTED_MODULE_1__["default"].overlay
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-    className: _Victory_module_css__WEBPACK_IMPORTED_MODULE_1__["default"].modalContainer
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h2", null, " \u041C\u043E\u0438 \u043F\u043E\u0437\u0434\u0440\u0430\u0432\u043B\u0435\u043D\u0438\u044F.. "), errorMessage !== null ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h2", null, errorMessage) : null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_rowSelector_RowSelector_jsx__WEBPACK_IMPORTED_MODULE_3__.RowSelector, {
-    onChange: setSelectedLevel,
-    selectedItem: selectedLevel
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_button_Button_jsx__WEBPACK_IMPORTED_MODULE_4__.Button, {
-    onClick: handleStartGame
-  }, 'Ещё разок? Выбери уровень')));
-};
-
-/***/ }),
-
-/***/ "./src/components/rowSelector/RowSelector.jsx":
-/*!****************************************************!*\
-  !*** ./src/components/rowSelector/RowSelector.jsx ***!
-  \****************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   RowSelector: () => (/* binding */ RowSelector)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var _RowSelector_module_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./RowSelector.module.css */ "./src/components/rowSelector/RowSelector.module.css");
-
-
-var RowSelector = function RowSelector(_ref) {
-  var onChange = _ref.onChange,
-    selectedItem = _ref.selectedItem;
-  var levels = ['easy', 'medium', 'expert', 'master'];
-  function changeSelectedItem(value) {
-    if (onChange) {
-      onChange(value);
-    }
-  }
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-    className: _RowSelector_module_css__WEBPACK_IMPORTED_MODULE_1__["default"].selectorContainer
-  }, levels.map(function (value, index) {
-    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
-      key: index,
-      onClick: function onClick() {
-        return changeSelectedItem(value);
-      },
-      className: value === selectedItem ? _RowSelector_module_css__WEBPACK_IMPORTED_MODULE_1__["default"].selectedItem : _RowSelector_module_css__WEBPACK_IMPORTED_MODULE_1__["default"].selectorItem
-    }, value);
-  })));
-};
-
-/***/ }),
-
 /***/ "./src/hooks/gameState.js":
 /*!********************************!*\
   !*** ./src/hooks/gameState.js ***!
@@ -7248,7 +7157,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_redux_es_hooks_useSelector_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-redux/es/hooks/useSelector.js */ "./node_modules/react-redux/es/hooks/useSelector.js");
 /* harmony import */ var _redux_selectors_lockSections_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../redux/selectors/lockSections.js */ "./src/redux/selectors/lockSections.js");
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
-/* harmony import */ var _components_modalVictory_Victory_jsx__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../components/modalVictory/Victory.jsx */ "./src/components/modalVictory/Victory.jsx");
+/* harmony import */ var _components_modalVictory_Victory_tsx__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../components/modalVictory/Victory.tsx */ "./src/components/modalVictory/Victory.tsx");
 function _slicedToArray(arr, i) {
   return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest();
 }
@@ -7337,7 +7246,7 @@ var Board = function Board() {
     className: _Board_module_css__WEBPACK_IMPORTED_MODULE_1__["default"].topBarMenu
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_infoBoard_NameLvl_jsx__WEBPACK_IMPORTED_MODULE_3__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_infoBoard_Level_jsx__WEBPACK_IMPORTED_MODULE_4__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_infoBoard_selectingCombs_SelectingCombContainer_jsx__WEBPACK_IMPORTED_MODULE_5__["default"], null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "botBarKey"
-  }, "qwerty"))), isVictory ? /*#__PURE__*/(0,react_dom__WEBPACK_IMPORTED_MODULE_8__.createPortal)( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_modalVictory_Victory_jsx__WEBPACK_IMPORTED_MODULE_9__.VictoryModal, {
+  }, "qwerty"))), isVictory ? /*#__PURE__*/(0,react_dom__WEBPACK_IMPORTED_MODULE_8__.createPortal)( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_modalVictory_Victory_tsx__WEBPACK_IMPORTED_MODULE_9__.VictoryModal, {
     onClick: function onClick() {
       return setIsVictory(false);
     }
@@ -7359,7 +7268,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var _Home_module_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Home.module.css */ "./src/pages/home/Home.module.css");
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/dist/index.js");
-/* harmony import */ var _components_rowSelector_RowSelector_jsx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../components/rowSelector/RowSelector.jsx */ "./src/components/rowSelector/RowSelector.jsx");
+/* harmony import */ var _components_rowSelector_RowSelector_tsx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../components/rowSelector/RowSelector.tsx */ "./src/components/rowSelector/RowSelector.tsx");
 /* harmony import */ var _components_button_Button_jsx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../components/button/Button.jsx */ "./src/components/button/Button.jsx");
 /* harmony import */ var _redux_store_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../redux/store.js */ "./src/redux/store.js");
 /* harmony import */ var _hooks_gameState_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../hooks/gameState.js */ "./src/hooks/gameState.js");
@@ -7443,7 +7352,7 @@ var Home = function Home() {
   };
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: _Home_module_css__WEBPACK_IMPORTED_MODULE_1__["default"].HomeContainer
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", null, "StarField Locker"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_rowSelector_RowSelector_jsx__WEBPACK_IMPORTED_MODULE_2__.RowSelector, {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", null, "StarField Locker"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_rowSelector_RowSelector_tsx__WEBPACK_IMPORTED_MODULE_2__.RowSelector, {
     onChange: setSelectedItem,
     selectedItem: selectedItem
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_button_Button_jsx__WEBPACK_IMPORTED_MODULE_3__.Button, {
@@ -46743,7 +46652,7 @@ function n(n){for(var r=arguments.length,t=Array(r>1?r-1:0),e=1;e<r;e++)t[e-1]=a
 /******/ 		};
 /******/ 	
 /******/ 		// Execute the module function
-/******/ 		__webpack_modules__[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+/******/ 		__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
 /******/ 	
 /******/ 		// Return the exports of the module
 /******/ 		return module.exports;
@@ -46872,12 +46781,48 @@ function n(n){for(var r=arguments.length,t=Array(r>1?r-1:0),e=1;e<r;e++)t[e-1]=a
 /******/ 	})();
 /******/ 	
 /************************************************************************/
-/******/ 	
-/******/ 	// startup
-/******/ 	// Load entry module and return exports
-/******/ 	// This entry module is referenced by other modules so it can't be inlined
-/******/ 	var __webpack_exports__ = __webpack_require__("./src/App.tsx");
-/******/ 	
+var __webpack_exports__ = {};
+// This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
+(() => {
+/*!*********************!*\
+  !*** ./src/App.tsx ***!
+  \*********************/
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   App: () => (/* binding */ App)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var _pages_home_Home_jsx__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./pages/home/Home.jsx */ "./src/pages/home/Home.jsx");
+/* harmony import */ var _pages_board_Board_jsx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./pages/board/Board.jsx */ "./src/pages/board/Board.jsx");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/dist/index.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/dist/index.js");
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
+/* harmony import */ var _index_css__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./index.css */ "./src/index.css");
+/* harmony import */ var _redux_store_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./redux/store.js */ "./src/redux/store.js");
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+
+
+
+
+
+
+
+
+
+var App = function App() {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_redux__WEBPACK_IMPORTED_MODULE_6__.Provider, {
+    store: _redux_store_js__WEBPACK_IMPORTED_MODULE_5__.store
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__.BrowserRouter, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.Routes, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.Route, {
+    path: '/',
+    element: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_pages_home_Home_jsx__WEBPACK_IMPORTED_MODULE_1__.Home, null)
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.Route, {
+    path: '/game',
+    element: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_pages_board_Board_jsx__WEBPACK_IMPORTED_MODULE_2__.Board, null)
+  })))));
+};
+react_dom__WEBPACK_IMPORTED_MODULE_3__.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(App, null), document.getElementById('root'));
+})();
+
 /******/ })()
 ;
 //# sourceMappingURL=main.js.map

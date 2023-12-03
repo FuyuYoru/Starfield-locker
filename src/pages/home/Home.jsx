@@ -1,7 +1,7 @@
 import React from "react";
 import styles from './Home.module.css'
 import { NavLink } from "react-router-dom";
-import { RowSelector } from "../../components/rowSelector/RowSelector.jsx";
+import { RowSelector } from "../../components/rowSelector/RowSelector.tsx";
 import { Button } from "../../components/button/Button.jsx";
 import { store } from "../../redux/store.js";
 import { useState, useRef } from "react";

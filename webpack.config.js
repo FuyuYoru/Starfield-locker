@@ -44,7 +44,7 @@ module.exports = {
 		historyApiFallback: true,
 	},
 	resolve: {
-		extensions: ['.js', '.jsx', '.ts', '.tsx'],
+		extensions: ['.js', '.jsx', '.ts', '.tsx', '.css'],
 		// plugins: [new TsconfigPathsPlugin({ configFile: "./tsconfig.json" })],
 	},
 	module: {

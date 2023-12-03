@@ -1,12 +1,12 @@
 {
 	"compilerOptions": {
-		"target": "es5",
+		"target": "es6",
 		"lib": [
 			"dom",
-			"es2015"
+			"es2016"
 		],
 		"jsx": "react",
-		"module": "commonjs",
+		"module": "ESNext",
 		"moduleResolution": "node",
 		"esModuleInterop": true,
 		"skipLibCheck": true,
@@ -28,6 +28,7 @@
 		"src/tests"
 	],
 	"include": [
-		"./declaration.d.ts"
+		"./declaration.d.ts",
+		"src/"
 	]
 }

@@ -1,11 +1,7 @@
 import React, { FC } from 'react';
 import styles from './LockSection.module.css';
 
-<<<<<<< HEAD
 const calculateCoordinates = (radius: number, angle: number): { x: number, y: number } => ({
-=======
-const calculateCoordinates = (radius: number, angle: number ): {x: number, y: number} => ({
->>>>>>> 226fa75a29118e28d51f27799266f77ccac9d90d
 	x: radius * Math.cos((angle * Math.PI) / 180),
 	y: radius * Math.sin((angle * Math.PI) / 180),
 });
