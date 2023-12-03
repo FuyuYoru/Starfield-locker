@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './Level.module.css'
 import { useSelector } from 'react-redux';
+
 const Level = () => {
 	const level = useSelector(state => state.activeItems.currentLevel)
 	return (
